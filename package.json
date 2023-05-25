@@ -6,13 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "watch:sass": "sass --no-source-map --watch src/styles/scss/main.scss:src/globals.css",
+    "build:scss": "sass --no-source-map src/styles/scss/main.scss:src/styles/globals.css"
   },
   "dependencies": {
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
+    "moment": "^2.29.4",
     "next": "13.4.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.62.1"
   }
 }

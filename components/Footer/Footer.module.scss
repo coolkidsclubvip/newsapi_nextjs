@@ -1,0 +1,20 @@
+
+@use '@/styles/scss/abstracts/' as *;
+
+.footer{
+     background-color:$primaryColor;
+     width: 100vw;
+     height: 10vh;
+     margin-top: 10vh;
+}
+
+.footer2{
+ background-color:$secondaryColor;
+ height: 5vh;
+
+}
+
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}

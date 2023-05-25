@@ -1,0 +1,15 @@
+@use '@/styles/scss/abstracts/' as *;
+
+.heroSection{
+     background-color:yellow;
+ 
+
+
+  width: 100%; /* 占满视口宽度 */
+
+}
+.hero_caption{
+     color:$fontColorLight;
+     background-color:$secondaryColor;
+     opacity: 0.8;
+}
