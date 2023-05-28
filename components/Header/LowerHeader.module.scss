@@ -1,23 +1,46 @@
-.header{
+@use "@/styles/scss/abstracts/" as *;
+
+.header {
   overflow: hidden;
   padding: 0;
   margin: 0;
   padding-left: 0;
-padding-right: 0;
+  padding-right: 0;
 }
 
+.navBrand {
+  color: $blueColor;
+  font-size: 2.5rem;
+  margin-left: 5rem;
+  line-height: 3rem;
+}
 
 .navlink {
+  font-size: $navFontSize;
+  width: 7rem;
   text-decoration: none;
   color: white;
-  margin-left: 5rem;
-
-  background: linear-gradient(#0197E1 0 0) no-repeat;
+  padding: 0 0.5rem;
+  margin-left: 3rem;
+  line-height: 3rem;
+  background: linear-gradient(#0197e1 0 0) no-repeat;
   background-size: 0%;
   transition: 0.4s;
   &:hover {
-    color: white;
-    background-size: 100%;
+    color: rgb(255, 255, 255);
+    background-size: 150%;
     transition: 0.4s;
   }
+}
+
+.form{
+  margin-right: 5rem;
+}
+
+.customButton{
+  width: 6rem;
+  color: white;
+  background-color: $blueColor;
+
+
 }

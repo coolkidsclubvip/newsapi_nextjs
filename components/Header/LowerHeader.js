@@ -1,14 +1,32 @@
 import styles from "./LowerHeader.module.scss";
 import Link from "next/link";
-import UpperHeader from "./UpperHeader";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 function LowerHeader() {
+  // Get user query and fetch and render a new page
+  const [query, setQuery] = useState("");
+ 
+  const router = useRouter();
+
+  // update query when input is changed
+    const handleChange = (e) => {
+      setQuery(e.target.value);
+    }; 
+  const clickHandler = async (e) => {
+    e.preventDefault();
+    router.push({
+      pathname: "/search",
+      query: { query: query }, //Next.js expects query parameters to be strings
+    });
+  };
+
   return (
     <div className={styles.header}>
       <nav class="navbar bg-dark text-light navbar-expand-lg data-bs-theme='dark'">
-        <span class="navbar-brand" href="#">
-          Navbar
-        </span>
+        <div class="navbar-brand" href="#">
+          <span className={styles.navBrand}>NUTS NEWS</span>
+        </div>
         <button
           class="navbar-toggler"
           type="button"
@@ -26,26 +44,28 @@ function LowerHeader() {
               <span>Home</span>
             </Link>
 
-            <Link href="/ausnews" className={styles.navlink}>
-              <span>AusFeed</span>
+            <Link href="/aunews" className={styles.navlink}>
+              <span>Australia</span>
             </Link>
 
-            <Link href="/worldnews" className={styles.navlink}>
-              <span>GlobeFeed</span>
+            <Link href="/amnews" className={styles.navlink}>
+              <span>America</span>
             </Link>
-        
           </div>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+          <div className={styles.form}>
+            <form class="d-flex" role="search" onSubmit={clickHandler}>
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search keywords..."
+                aria-label="Search"
+                onChange={handleChange}
+              />
+              <button className={styles.customButton} type="submit">
+                Search
+              </button>
+            </form>
+          </div>
         </div>
       </nav>
     </div>

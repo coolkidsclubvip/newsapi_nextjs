@@ -2,6 +2,7 @@
 import styles from "./HeroSection.module.scss";
 import Image from "next/image";
 import { Fragment } from "react";
+import Link from "next/link";
 
 function HeroSection({ articles2 }) {
 
@@ -16,7 +17,9 @@ function HeroSection({ articles2 }) {
           <div class="carousel-inner">
             {articles2.map((article, index) => (
               <Fragment key={index}>
+               
                 <div className={`carousel-item ${index === 0 ? "active" : ""}`}>
+               <Link href="/[articleId]" as={`/${article.title}`}>
                   <Image
                     src={article.urlToImage}
                     class="d-block w-100"
@@ -27,11 +30,13 @@ function HeroSection({ articles2 }) {
                   />
                   <div className="carousel-caption d-none d-md-block">
                     <div className={styles.hero_caption}>
-                      <h1>{article.title}</h1>
-                      <p>{article.description}</p>
+                      <h2>{article.title}</h2>
+                      {/* <p>{article.description}</p> */}
                     </div>
                   </div>
+                  </Link>
                 </div>
+                
               </Fragment>
             ))}
           </div>

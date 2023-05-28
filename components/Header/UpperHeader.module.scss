@@ -1,8 +1,45 @@
-.upper_header{
-     padding: 0;
-     margin: 0;
-     color: white;
-     width: 100vw;
-     height: 8vh;
-background-color: #505050;
+@use "@/styles/scss/abstracts/" as *;
+
+.upper_header {
+  color: white;
+  width: 100vw;
+  height: 8vh;
+  background-color: #505050;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: $navFontSize;
+}
+.logo{
+  z-index: 99;
+  position: absolute;
+  margin-left: 5rem;
+}
+.weather{
+display:flex;
+flex-direction:row;
+justify-content: end;
+margin-right: 6rem;
+}
+
+.icon{
+  
+  line-height: 8vh;
+}
+
+.location{ 
+ 
+  line-height: 8vh;
+   padding-left: 1rem;
+  // background-color: aqua;
+}
+
+.temp{
+  line-height: 8vh;
+  padding-left: 1rem;
+  // background-color: blueviolet;
+}
+.condition{
+  line-height: 8vh;
+ padding-left: 1rem;
+  // background-color: chartreuse;
 }

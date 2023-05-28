@@ -1,15 +1,17 @@
-@use '@/styles/scss/abstracts/' as *;
+@use "@/styles/scss/abstracts/" as *;
 
-.heroSection{
-     background-color:yellow;
- 
-
-
-  width: 100%; /* 占满视口宽度 */
-
+.heroSection {
+  position: relative;
+  margin: 0 auto;
+  width: 100vw;
+  height: 85vh;
+  overflow: hidden;
 }
-.hero_caption{
-     color:$fontColorLight;
-     background-color:$secondaryColor;
-     opacity: 0.8;
+.hero_caption {
+  display: absolute;
+  color: black;
+  background-color: white;
+
+  margin-top: 50vh;
+  // opacity: 0.8;
 }

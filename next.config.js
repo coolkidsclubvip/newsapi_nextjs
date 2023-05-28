@@ -14,6 +14,9 @@ const nextConfig = {
       "storage.googleapis.com",
       "media.cnn.com",
       "s.abcnews.com",
+      "live-production.wcms.abc-cdn.net.au",
+      "cdn.weatherapi.com",
+      "static.files.bbci.co.uk",
     ],
   },
 };

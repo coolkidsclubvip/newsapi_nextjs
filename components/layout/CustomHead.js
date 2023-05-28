@@ -27,7 +27,7 @@ function CustomHead(props) {
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
           defer
         ></script>
-        <title>{`Nuts News|${props.title}`}</title>
+        <title>{`Nuts News | ${props.title}`}</title>
       </Head>
     </>
   );
