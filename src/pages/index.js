@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { useRouter } from "next/router";
 import ArticlesList from "../../components/mapping/ArticlesList/ArticlesList";
 import HeroSection from "../../components/HeroSection/HeroSection";
-import styles from "./index.module.scss";
+// import styles from "./index.module.scss";
 
 
 const inter = Inter({ subsets: ["latin"] });////////TO BE FIXED////

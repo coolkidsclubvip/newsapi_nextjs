@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./UpperHeader.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 function UpperHeader() {
   const [location, setLocation] = useState(null);
@@ -63,14 +64,15 @@ function UpperHeader() {
 
   return (
     <div className={styles.upper_header}>
-      <Image
-        src="/NN_LOGO.png"
-        width={90}
-        height={90}
-        className={styles.logo}
-        alt="Nuts news logo"
-      />
-
+      <Link href="/">
+        <Image
+          src="/NN_LOGO.png"
+          width={90}
+          height={90}
+          className={styles.logo}
+          alt="Nuts news logo"
+        />
+      </Link>
       {location && currentCondition && (
         <div className={styles.weather}>
           <div className={styles.icon}>

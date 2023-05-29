@@ -13,7 +13,7 @@ function Custom404() {
           The page you’re looking for does not exist.
         </p>
         <Link href="/">
-          <button className={styles.customButton}>Home</button>
+          <button className={styles.customButton}>Back to Home</button>
         </Link>
         <div className={styles.backgroundWrapper}>
           <p>404</p>
