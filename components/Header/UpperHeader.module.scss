@@ -8,6 +8,8 @@
   padding-left: 0;
   padding-right: 0;
   font-size: $navFontSize;
+   text-shadow: -1px -1px 0 #121212, 1px 1px 0 #121212, -1px 1px 0 #121212,
+    1px -1px 0 #121212;
 }
 .logo{
   z-index: 99;

@@ -3,13 +3,7 @@ import Head from "next/head";
 function CustomHead(props) {
   return (
     <>
-      {/* <Head>
-        <title>{`CodeFeed | ${article.category}`}</title>
-        <meta
-          name="description"
-          description={article.title + ": " + article.description}
-        />
-      </Head> */}
+    
 
       <Head>
         <title>The Nuts News</title>
@@ -27,6 +21,10 @@ function CustomHead(props) {
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
           defer
         ></script>
+        {/* 404 page animation */}
+      
+      
+
         <title>{`Nuts News | ${props.title}`}</title>
       </Head>
     </>

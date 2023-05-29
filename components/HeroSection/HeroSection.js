@@ -30,7 +30,7 @@ function HeroSection({ articles2 }) {
                   />
                   <div className="carousel-caption d-none d-md-block">
                     <div className={styles.hero_caption}>
-                      <h2>{article.title}</h2>
+                      <p>{article.title}</p>
                       {/* <p>{article.description}</p> */}
                     </div>
                   </div>

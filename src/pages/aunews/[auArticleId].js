@@ -58,7 +58,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const articles = await fetchArticles();
   //  Store params id value (article USER wants!)
-  const articleQuery = context.params.auArticleId; // This auArticleIdis passed in through click
+  const articleQuery = context.params.auArticleId; // This auArticleId is passed in through click
   //  Filters articles array to match & return article passed in params
   const articleMatch = articles.filter(
     (article) => article.title.toString() === articleQuery

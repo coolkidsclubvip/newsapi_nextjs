@@ -38,9 +38,25 @@
 }
 
 .customButton{
-  width: 6rem;
-  color: white;
+  // width: 6rem;
+  color: rgb(0, 0, 0);
   background-color: $blueColor;
+//button style:
+  background: $blueColor;
+  font-family: inherit;
+  padding: 0 1.3rem;
+  font-weight: 900;
+  font-size: 18px;
+  border: 3px solid black;
+  border-radius: 0.4rem;
+  box-shadow: 0.3rem 0.3rem;
+  &:hover {
+  transform: translate(-0.05rem, -0.05rem);
+  box-shadow: 0.15rem 0.15rem;
+}
 
-
+&:active {
+  transform: translate(0.05rem, 0.05rem);
+  box-shadow: 0.05rem 0.05rem;
+}
 }

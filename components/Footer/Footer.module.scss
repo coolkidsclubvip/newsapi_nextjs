@@ -1,17 +1,39 @@
 
 @use '@/styles/scss/abstracts/' as *;
 
-.footer{
+.footer1{
+  display: flex;
      background-color:$primaryColor;
      width: 100vw;
      height: 10vh;
      margin-top: 10vh;
+     color: white;
+     justify-content: center;
+     align-items: center;
+     text-decoration: none;
+     font-size: $navFontSize;
+    
+}
+
+.about{
+margin-right: 5rem;
+&:hover{
+  color: $blueColor;
+}
+}
+.privacy{
+  margin-left: 5rem;
+  &:hover{
+  color: $blueColor;
+}
 }
 
 .footer2{
  background-color:$secondaryColor;
  height: 5vh;
-
+color: white;
+text-align: center;
+line-height: 5vh;
 }
 
 .container-fluid {

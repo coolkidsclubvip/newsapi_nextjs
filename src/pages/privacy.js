@@ -2,14 +2,13 @@ import React from "react";
 import { Fragment } from "react";
 import CustomHead from "../../components/layout/CustomHead";
 
-function about() {
+function privacy() {
   return (
     <Fragment>
-      <CustomHead title={"About NN"} />
+      <CustomHead title={"Privacy"} />
       <div className="container mt-5 ">
-        <h1>
-          This website is built with Next.js Framework. And it involves CSR,SSG
-          and SSR.
+        <h1 >
+         Important Privacy Policy
         </h1>
 
         <p>
@@ -38,4 +37,4 @@ function about() {
   );
 }
 
-export default about;
+export default privacy;

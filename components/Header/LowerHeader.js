@@ -15,10 +15,13 @@ function LowerHeader() {
     }; 
   const clickHandler = async (e) => {
     e.preventDefault();
-    router.push({
-      pathname: "/search",
-      query: { query: query }, //Next.js expects query parameters to be strings
-    });
+    if (!query){return }
+    else if (typeof query === "string"){
+      router.push({
+        pathname: "/search",
+        query: { query: query }, //Next.js expects query parameters to be strings
+      });
+    }
   };
 
   return (
