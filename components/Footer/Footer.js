@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <div className="container-fluid">
+    <div className={styles.container}>
       <div className={styles.footer1}>
         <Link href={"/about"}>
           <span className={styles.about}>About</span>

@@ -6,12 +6,12 @@ import styles from "./Header.module.scss";
 function Header() {
   return (
     <div className={styles.container}>
-      <div className="container-fluid">
-        <UpperHeader />
-        <LowerHeader />
-      </div>
+     {/* <div className='container-fluid'> */}
+     <UpperHeader/>
+     <LowerHeader/>
+    {/* </div> */}
     </div>
-  );
+  )
 }
 
 export default Header

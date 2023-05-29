@@ -8,7 +8,7 @@ function HeroSection({ articles2 }) {
 
   return (
     <div className={styles.heroSection}>
-      <div className="container-fluid">
+      {/* <div className="container-fluid"> */}
         <div
           id="carouselExampleCaptions"
           class="carousel slide"
@@ -28,7 +28,7 @@ function HeroSection({ articles2 }) {
                     width={1200}
                     height={675}
                   />
-                  <div className="carousel-caption d-none d-md-block">
+                  <div className="carousel-caption  d-md-block">
                     <div className={styles.hero_caption}>
                       <p>{article.title}</p>
                       {/* <p>{article.description}</p> */}
@@ -60,7 +60,7 @@ function HeroSection({ articles2 }) {
           </button>
         </div>
       </div>
-    </div>
+    // </div>
   );
 }
 

@@ -1,8 +1,8 @@
-@use '@/styles/scss/abstracts/' as *;
+@use "@/styles/scss/abstracts/" as *;
 
-.articlesList{
-     width: 100vw;
-     background-color: #eb0c0c;
-     padding: 0 5rem;
-     margin-bottom: 10rem;
+.articlesList {
+  width: 100%;
+  height: auto;
+  padding: 0 5rem;
+  margin-bottom: 10rem;
 }
