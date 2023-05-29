@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-
-
-
 // const nextConfig = {
 //   reactStrictMode: true,
 //   images: {
@@ -105,7 +102,7 @@ module.exports = (phase) => {
   const env = {
     SERVER_NAME: (() => {
       if (isDev) return "http://localhost:3000/";
-      if (isProd) return "https://YOUR-DOMAIN-HERE.vercel.app/";
+      if (isProd) return "newsapi-nextjs-80vfc4ubf-coolkidsclubvip.vercel.app";
     })(),
     NEWS_API_KEY: process.env.NEWS_API_KEY,
     // NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
