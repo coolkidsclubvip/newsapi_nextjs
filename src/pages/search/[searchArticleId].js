@@ -26,7 +26,6 @@ const SearchArticleId = (props) => {
 };
 
 async function fetchArticles(query) {
-  console.log("$$$$$query in fetch is",query);
   const response = await fetch(
     `https://newsapi.org/v2/everything?sources=bbc-news&q=${query}&pageSize=21&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
   );
@@ -39,11 +38,9 @@ async function fetchArticles(query) {
 export const getServerSideProps = async (context) => {
   // Get the query word from context!!!important
 
-const refererHeader = context.req.headers.referer;
-const urlSearchParams = new URLSearchParams(new URL(refererHeader).search);
-const query = urlSearchParams.get("query");
-
-
+  const refererHeader = context.req.headers.referer;
+  const urlSearchParams = new URLSearchParams(new URL(refererHeader).search);
+  const query = urlSearchParams.get("query");
 
   const articles = await fetchArticles(query);
 
@@ -57,7 +54,7 @@ const query = urlSearchParams.get("query");
   if (articleMatch.length > 0) {
     userArticle = articleMatch[0];
     // Hook query keywords to userArticle, for "go back function"
-    userArticle.query=query;
+    userArticle.query = query;
   }
 
   return {

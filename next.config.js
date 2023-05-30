@@ -104,8 +104,8 @@ module.exports = (phase) => {
       if (isDev) return "http://localhost:3000/";
       if (isProd) return "newsapi-nextjs-80vfc4ubf-coolkidsclubvip.vercel.app";
     })(),
-    NEWS_API_KEY: process.env.NEWS_API_KEY,
-    // NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+    NEWS_API_KEY: process.env.NEXT_PUBLIC_NEWS_API_KEY,
+    NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
   };
 
   // Next.config returns an object
