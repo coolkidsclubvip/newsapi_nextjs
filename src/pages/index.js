@@ -6,17 +6,18 @@ import ArticlesList from "../../components/mapping/ArticlesList/ArticlesList";
 import HeroSection from "../../components/HeroSection/HeroSection";
 // import styles from "./index.module.scss";
 
+const inter = Inter({ subsets: ["latin"] }); ////////TO BE FIXED////
 
-const inter = Inter({ subsets: ["latin"] });////////TO BE FIXED////
-
-
-
-export default function Home({ headLineArticles, heroSectionArticles,userArticle }) {
+export default function Home({
+  headLineArticles,
+  heroSectionArticles,
+  userArticle,
+}) {
   // Conditionally render the ArticleTitle component only on dynamic endpoint visit
   const router = useRouter();
-  const isDynamicRoute = true
+  const isDynamicRoute = true;
   // router.route === "/[articleTitle]";
-  const category =""
+  const category = "";
   return (
     <Fragment>
       <CustomHead title={"Home"} />
@@ -31,10 +32,9 @@ export default function Home({ headLineArticles, heroSectionArticles,userArticle
 }
 
 export const getStaticProps = async () => {
-  
   // fetch articles in body
   const res1 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&q=international&pageSize=22&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&q=international&pageSize=22&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
 
     // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}` //abc news-au
   );
@@ -46,7 +46,7 @@ export const getStaticProps = async () => {
   const res2 = await fetch(
     // `https://jsonplaceholder.typicode.com/posts?_limit=15`
     // `https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
-    `https://newsapi.org/v2/everything?sources=bbc-news&q=melbourne&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&q=melbourne&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
   const data2 = await res2.json();
   const articles2 = data2.articles;
@@ -56,7 +56,6 @@ export const getStaticProps = async () => {
   //     article.urlToImage !==
   //     "https://s.abcnews.com/images/US/abc_news_default_2000x2000_update_16x9_992.jpg"
   // );
-
 
   return {
     props: {
