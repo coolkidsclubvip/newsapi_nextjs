@@ -34,11 +34,9 @@ export const getStaticProps = async () => {
   
   // fetch articles in body
   const res1 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&q=international&pageSize=22&apiKey=${process.env.NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&q=international&pageSize=22&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
 
-    // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEWS_API_KEY}` //abc news-au
-
-   
+    // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}` //abc news-au
   );
   const data1 = await res1.json();
   const articles1 = data1.articles;
@@ -47,8 +45,8 @@ export const getStaticProps = async () => {
   // fetch hero section articles
   const res2 = await fetch(
     // `https://jsonplaceholder.typicode.com/posts?_limit=15`
-    // `https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=${process.env.NEWS_API_KEY}`
-    `https://newsapi.org/v2/everything?sources=bbc-news&q=melbourne&apiKey=${process.env.NEWS_API_KEY}`
+    // `https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&q=melbourne&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
   );
   const data2 = await res2.json();
   const articles2 = data2.articles;
