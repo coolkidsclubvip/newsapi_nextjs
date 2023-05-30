@@ -9,7 +9,7 @@ const auArticleId = (props) => {
     // headLineArticles, heroSectionArticles,
     userArticle,
   } = props;
-const category = "aunews"
+  const category = "aunews";
   return (
     <Fragment>
       <CustomHead title={userArticle.title} />
@@ -31,7 +31,7 @@ const category = "aunews"
 async function fetchArticles() {
   // fetch articles in body
   const response = await fetch(
-    `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEWS_API_KEY}`
+    `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
   const data = await response.json();
   // const articles = await res.json();
@@ -43,7 +43,7 @@ export const getStaticPaths = async () => {
   const articles = await fetchArticles();
 
   // Pull ALL the ids out of the articles array ONLY
-  const titleList = articles.map((article) => (article.title));
+  const titleList = articles.map((article) => article.title);
   //Pre-build ALL the URL paths for all existing titles in array
   const paths = titleList.map((title) => ({
     params: { auArticleId: title.toString() },

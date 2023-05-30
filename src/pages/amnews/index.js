@@ -18,7 +18,7 @@ function AmNews({ amArticles }) {
 
 export const getStaticProps = async () => {
   const response = await fetch(
-    `https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=${process.env.NEWS_API_KEY}`
+    `https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
   const data = await response.json();
   const articles = data.articles;

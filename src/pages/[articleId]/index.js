@@ -32,7 +32,7 @@ async function fetchArticles() {
   let combinedArticles = [];
   // fetch articles in body
   const res1 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&q=international&pageSize=22&apiKey=${process.env.NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&q=international&pageSize=22&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
   const data1 = await res1.json();
   // const articles = await res.json();
@@ -42,7 +42,7 @@ async function fetchArticles() {
   // fetch hero section articles
   const res2 = await fetch(
     // `https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=${process.env.NEWS_API_KEY}`
-    `https://newsapi.org/v2/everything?sources=bbc-news&q=melbourne&apiKey=${process.env.NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&q=melbourne&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
   const data2 = await res2.json();
   const articles2 = data2.articles;
