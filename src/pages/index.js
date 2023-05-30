@@ -30,7 +30,7 @@ export default function Home({
     </Fragment>
   );
 }
-
+  
 export const getStaticProps = async () => {
   // fetch articles in body
   const res1 = await fetch(
@@ -39,7 +39,7 @@ export const getStaticProps = async () => {
     // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}` //abc news-au
   );
   const data1 = await res1.json();
-  const articles1 = data1.articles;
+  const articles1 = data1.articles; 
   articles1.shift(); // remove the 1st bbc empty articles
 
   // fetch hero section articles
