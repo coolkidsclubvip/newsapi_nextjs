@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
     <Fragment>
       {/* GA TAGS */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT.NEXT_PUBLIC_GA_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
         strategy="afterInteractive"
       />
 
