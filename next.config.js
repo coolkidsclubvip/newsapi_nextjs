@@ -102,7 +102,7 @@ module.exports = (phase) => {
   const env = {
     SERVER_NAME: (() => {
       if (isDev) return "http://localhost:3000/";
-      if (isProd) return "newsapi-nextjs-80vfc4ubf-coolkidsclubvip.vercel.app";
+      if (isProd) return "https://newsapi-nextjs-two.vercel.app/";
     })(),
     NEWS_API_KEY: process.env.NEXT_PUBLIC_NEWS_API_KEY,
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
