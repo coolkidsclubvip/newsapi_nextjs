@@ -2,7 +2,7 @@ import { useState, useEffect, Fragment } from "react";
 import ArticlesList from "../../../components/mapping/ArticlesList/ArticlesList";
 import CustomHead from "../../../components/layout/CustomHead";
 import { useRouter } from "next/router";
-import styles from "./index.module.scss";
+import styles from "./search.module.scss";
 
 // const Search = () => {
 //   const router = useRouter();

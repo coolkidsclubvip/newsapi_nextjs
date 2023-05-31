@@ -6,17 +6,18 @@ import { useRouter } from "next/router";
 function LowerHeader() {
   // Get user query and fetch and render a new page
   const [query, setQuery] = useState("");
- 
+
   const router = useRouter();
 
   // update query when input is changed
-    const handleChange = (e) => {
-      setQuery(e.target.value);
-    }; 
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
   const clickHandler = async (e) => {
     e.preventDefault();
-    if (!query){return }
-    else if (typeof query === "string"){
+    if (!query) {
+      return;
+    } else if (typeof query === "string") {
       router.push({
         pathname: "/search",
         query: { query: query }, //Next.js expects query parameters to be strings
@@ -26,8 +27,8 @@ function LowerHeader() {
 
   return (
     <div className={styles.header}>
-      <nav class="navbar bg-dark text-light navbar-expand-lg data-bs-theme='dark'">
-        <div class="navbar-brand" href="#">
+      <nav className="navbar-dark bg-dark text-light navbar-expand-lg data-bs-theme='dark'">
+        <div className="navbar-brand" href="#">
           <Link href="/">
             <span className={styles.navBrand}>NUTS NEWS</span>
           </Link>
