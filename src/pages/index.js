@@ -40,7 +40,8 @@ export const getStaticProps = async () => {
   );
   const data1 = await res1.json();
   const articles1 = data1.articles;
-  articles1.shift(); // remove the 1st bbc empty articles
+
+  // articles1.shift(); // remove the 1st bbc empty articles
 
   // fetch hero section articles
   const res2 = await fetch(
