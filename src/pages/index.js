@@ -59,8 +59,8 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      headLineArticles: articles1,
       heroSectionArticles: articles2,
+      headLineArticles: articles1,
     },
     revalidate: 60 * 60,
   };

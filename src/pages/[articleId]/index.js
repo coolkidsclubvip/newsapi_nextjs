@@ -9,6 +9,8 @@ const ArticleId = (props) => {
     // headLineArticles, heroSectionArticles,
     userArticle,
   } = props;
+
+  console.log("@@@userArticle is: ", userArticle);
   const category = "";
   return (
     <Fragment>
@@ -76,7 +78,7 @@ export const getStaticPaths = async () => {
 // STATIC SITE GENERATION
 export const getStaticProps = async (context) => {
   const combinedArticles = await fetchArticles();
-  console.log("context is:", context);
+
   //  Store params id value (article USER wants!)
   const articleQuery = context.params.articleId; // This articleId is passed in through click
   //  Filters articles array to match & return article passed in params
