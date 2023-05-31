@@ -34,7 +34,7 @@ export default function Home({
 export const getStaticProps = async () => {
   // fetch articles in body
   const res1 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=22&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
 
     // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}` //abc news-au
   );
