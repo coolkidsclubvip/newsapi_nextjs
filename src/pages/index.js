@@ -34,14 +34,18 @@ export default function Home({
 export const getStaticProps = async () => {
   // fetch articles in body
   const res1 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=22&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=20&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
 
     // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}` //abc news-au
   );
   const data1 = await res1.json();
-  const articles1 = data1.articles;
-
-  // articles1.shift(); // remove the 1st bbc empty articles
+  const articles = data1.articles;
+ const articles1 = articles.filter(
+    (article) =>
+      article.author !==null ||
+      article.description !==
+        "The latest five minute news bulletin from BBC World Service."
+  );
 
   // fetch hero section articles
   const res2 = await fetch(
