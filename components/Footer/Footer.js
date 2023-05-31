@@ -12,6 +12,9 @@ function Footer() {
         <Link href={"/privacy"}>
           <span className={styles.privacy}>Privacy</span>
         </Link>
+        <Link href={"/contact"}>
+          <span className={styles.privacy}>Contact</span>
+        </Link>
       </div>
       <div className={styles.footer2}> LeisWebDev©2023</div>
     </div>
