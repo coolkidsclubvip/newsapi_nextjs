@@ -10,16 +10,27 @@
   width: 30vw;
   height: 29vh;
   overflow: hidden;
+   @media (max-width: 767px) {
+    width: 100vw;
+    height:20vh;
+  }
 }
 .articleImage {
   position: relative;
-  // width: 50vw;
+  width: 30vw;
 
   z-index: 0;
 
   &:hover {
     opacity: 0.9;
   }
+
+
+  @media (max-width: 767px) {
+    width: 100%;
+    height: 20vh;
+  }
+
 }
 
 .card-body.styles.newsBody {

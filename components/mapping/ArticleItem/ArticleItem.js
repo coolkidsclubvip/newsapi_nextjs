@@ -11,10 +11,10 @@ const postedAgo = moment(publishedAt).fromNow();
       {" "}
       <div className="card h-100 shadow border-0">
         <Link href={`${category}[articleId]`} as={`${category}${title}`}>
-          <div className=" row styles.imageContainer">
+          <div className={styles.imageContainer}>
             <Image
               src={urlToImage}
-              className="card-img-top styles.articleImage col-sm-12"
+              className={styles.articleImage}
               alt={title}
               // layout="responsive"
               // fill={true}

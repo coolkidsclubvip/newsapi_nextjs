@@ -47,6 +47,7 @@ export const getStaticProps = async () => {
         "The latest five minute news bulletin from BBC World Service."
   );
 articles1.splice(0, 2);
+
   // fetch hero section articles
   const res2 = await fetch(
     // `https://jsonplaceholder.typicode.com/posts?_limit=15`

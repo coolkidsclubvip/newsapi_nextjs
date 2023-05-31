@@ -27,7 +27,7 @@ function LowerHeader() {
 
   return (
     <div className={styles.header}>
-      <nav className="navbar-dark bg-dark text-light navbar-expand-lg data-bs-theme='dark'">
+      <nav className="navbar bg-dark text-light navbar-expand-lg data-bs-theme='dark'">
         <div className="navbar-brand" href="#">
           <Link href="/">
             <span className={styles.navBrand}>NUTS NEWS</span>
