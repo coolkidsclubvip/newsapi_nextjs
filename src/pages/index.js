@@ -40,13 +40,13 @@ export const getStaticProps = async () => {
   );
 
   const data1 = await res1.json();
-  const articles = data1.articles;
-  const articles1 = articles.filter(
-    (article) =>
-      article.author !== null ||
-      article.description !==
-        "The latest five minute news bulletin from BBC World Service."
-  );
+  const articles1 = data1.articles;
+  // const articles1 = articles.filter(
+  //   (article) =>
+  //     article.author !== null ||
+  //     article.description !==
+  //       "The latest five minute news bulletin from BBC World Service."
+  // );
   // articles1.splice(0, 2);
 
   // fetch hero section articles
