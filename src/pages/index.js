@@ -38,11 +38,11 @@ export const getStaticProps = async () => {
 
     // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}` //abc news-au
   );
-  if (!res1.ok) {
-    throw new Error(
-      `Failed to fetch posts - Error ${response.status}: ${data.message}`
-    );
-  }
+  // if (!res1.ok) {
+  //   throw new Error(
+  //     `Failed to fetch posts - Error ${response.status}: ${data.message}`
+  //   );
+  // }
   const data1 = await res1.json();
   const articles = data1.articles;
   const articles1 = articles.filter(
@@ -60,11 +60,11 @@ export const getStaticProps = async () => {
     `https://newsapi.org/v2/everything?sources=bbc-news&q=australia&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
 
-  if (!res2.ok) {
-    throw new Error(
-      `Failed to fetch posts - Error ${response.status}: ${data.message}`
-    );
-  }
+  // if (!res2.ok) {
+  //   throw new Error(
+  //     `Failed to fetch posts - Error ${response.status}: ${data.message}`
+  //   );
+  // }
 
   const data2 = await res2.json();
   const articles2 = data2.articles;

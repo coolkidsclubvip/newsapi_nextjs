@@ -18,7 +18,7 @@ function ArticleDetail({
 }) {
   const postedAgo = moment(publishedAt).fromNow();
 
-  console.log("useraticle's query", query);
+  console.log("userarticle's query", query);
   return (
     <div className={styles.articleDetail}>
       <div className="container card border-0">
@@ -50,7 +50,7 @@ function ArticleDetail({
               Read more from source.
             </a>
           </p>
-            {/* conditionally check if query exists and render different back path */}
+          {/* conditionally check if query exists and render different back path */}
           <span>
             {query ? (
               <Link href={`/search?query=${query}`} className={styles.goBack}>
