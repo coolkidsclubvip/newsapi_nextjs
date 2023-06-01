@@ -34,7 +34,7 @@ async function fetchArticles() {
   let combinedArticles = [];
   // fetch articles in body
   const res1 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=21&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
   const data1 = await res1.json();
   const articles = data1.articles;
@@ -54,13 +54,13 @@ async function fetchArticles() {
   const data2 = await res2.json();
   const articles2 = data2.articles;
   //  remove the articles with default image
-  let filteredArticles = articles2.filter(
-    (article) =>
-      article.urlToImage !==
-      "https://s.abcnews.com/images/US/abc_news_default_2000x2000_update_16x9_992.jpg"
-  );
+  // let filteredArticles = articles2.filter(
+  //   (article) =>
+  //     article.urlToImage !==
+  //     "https://s.abcnews.com/images/US/abc_news_default_2000x2000_update_16x9_992.jpg"
+  // );
 
-  combinedArticles = [...articles1, ...filteredArticles];
+  combinedArticles = [...articles1, ...articles2];
 
   return combinedArticles;
 }
@@ -95,7 +95,7 @@ export const getStaticProps = async (context) => {
     props: {
       userArticle: articleMatch[0],
     },
-    revalidate: 60
+    revalidate: 60,
   };
 };
 
