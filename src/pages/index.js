@@ -43,7 +43,7 @@ export const getStaticProps = async () => {
   const articles = data1.articles;
   const articles1 = articles.filter(
     (article) =>
-      article.author !== null &&
+      article.author !== null ||
       article.description !==
         "The latest five minute news bulletin from BBC World Service."
   );
