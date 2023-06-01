@@ -37,13 +37,13 @@ async function fetchArticles() {
     `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=21&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
   const data1 = await res1.json();
-  const articles1 = data1.articles;
-  // const articles1 = articles.filter(
-  //   // (article) =>
-  //   //   article.author !== null &&
-  //   //   article.description !==
-  //   //     "The latest five minute news bulletin from BBC World Service."
-  // );
+  const articles = data1.articles;
+  const articles1 = articles.filter(
+    (article) =>
+      article.author !== null ||
+      article.description !==
+        "The latest five minute news bulletin from BBC World Service."
+  );
   // articles1.splice(0, 2);
 
   // fetch hero section articles

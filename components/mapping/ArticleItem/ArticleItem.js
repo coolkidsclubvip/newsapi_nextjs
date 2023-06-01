@@ -21,7 +21,7 @@ const postedAgo = moment(publishedAt).fromNow();
               layout="intrinsic"
               width={1200}
               height={675}
-              // sizes="(max-width: 100vw) 100vw, 33vw"
+              
             />
           </div>
           <div className="card-body styles.newsBody">
