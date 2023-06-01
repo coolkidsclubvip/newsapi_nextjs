@@ -19,12 +19,12 @@ function HeroSection({ articles2 }) {
                 <Link href="/[articleId]" as={`/${article.title}`}>
                   <Image
                     src={article.urlToImage}
-                    className="d-block w-100"
+                    // className="d-block w-100"
                     alt={article.title}
                     layout="responsive"
                     width={1200}
                     height={675}
-                    priority // Optional: Set priority to preload the image
+                   
                   />
                   <div className="carousel-caption  d-md-block">
                     <div className={styles.hero_caption}>
