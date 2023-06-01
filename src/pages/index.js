@@ -38,15 +38,20 @@ export const getStaticProps = async () => {
 
     // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}` //abc news-au
   );
+  if (!res1.ok) {
+    throw new Error(
+      `Failed to fetch posts - Error ${response.status}: ${data.message}`
+    );
+  }
   const data1 = await res1.json();
   const articles = data1.articles;
- const articles1 = articles.filter(
+  const articles1 = articles.filter(
     (article) =>
-      article.author !==null ||
+      article.author !== null ||
       article.description !==
         "The latest five minute news bulletin from BBC World Service."
   );
-articles1.splice(0, 2);
+  articles1.splice(0, 2);
 
   // fetch hero section articles
   const res2 = await fetch(
@@ -54,20 +59,21 @@ articles1.splice(0, 2);
     // `https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
     `https://newsapi.org/v2/everything?sources=bbc-news&q=australia&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
+
+  if (!res2.ok) {
+    throw new Error(
+      `Failed to fetch posts - Error ${response.status}: ${data.message}`
+    );
+  }
+
   const data2 = await res2.json();
   const articles2 = data2.articles;
-  // //  remove the articles with default image
-  // let filteredArticles = articles2.filter(
-  //   (article) =>
-  //     article.urlToImage !==
-  //     "https://s.abcnews.com/images/US/abc_news_default_2000x2000_update_16x9_992.jpg"
-  // );
 
   return {
     props: {
       heroSectionArticles: articles2,
       headLineArticles: articles1,
     },
-    revalidate: 60 * 60,
+    revalidate: 60,
   };
 };
