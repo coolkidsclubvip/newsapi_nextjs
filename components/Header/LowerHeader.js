@@ -34,7 +34,7 @@ function LowerHeader() {
           </Link>
         </div>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -42,10 +42,10 @@ function LowerHeader() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="navbar-nav me-auto mb-2 mb-lg-0 gx-3">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="navbar-nav me-auto mb-2 mb-lg-0 gx-3">
             <Link href="/" className={styles.navlink}>
               <span>Home</span>
             </Link>
@@ -59,9 +59,9 @@ function LowerHeader() {
             </Link>
           </div>
           <div className={styles.form}>
-            <form class="d-flex" role="search" onSubmit={clickHandler}>
+            <form className="d-flex" role="search" onSubmit={clickHandler}>
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search keywords..."
                 aria-label="Search"

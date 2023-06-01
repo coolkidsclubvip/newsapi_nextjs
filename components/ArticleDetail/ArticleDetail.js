@@ -18,7 +18,7 @@ function ArticleDetail({
 }) {
   const postedAgo = moment(publishedAt).fromNow();
 
-  console.log("userarticle's query", query);
+  // console.log("userarticle's query:", query);
   return (
     <div className={styles.articleDetail}>
       <div className="container card border-0">

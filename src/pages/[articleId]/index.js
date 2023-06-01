@@ -10,7 +10,7 @@ const ArticleId = (props) => {
     userArticle,
   } = props;
 
-  console.log("@@@userArticle is: ", userArticle);
+  // console.log("@@@userArticle is: ", userArticle);
   const category = "";
   return (
     <Fragment>
