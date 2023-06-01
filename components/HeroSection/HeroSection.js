@@ -24,7 +24,7 @@ function HeroSection({ articles2 }) {
                     layout="responsive"
                     width={1200}
                     height={675}
-                    priority // Optional: Set priority to preload the image
+                    loading="eager"
                   />
                   <div className="carousel-caption  d-md-block">
                     <div className={styles.hero_caption}>
