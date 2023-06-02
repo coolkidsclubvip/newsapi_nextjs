@@ -2,8 +2,6 @@
 // import CustomHead from "../../../components/layout/CustomHead";
 // import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
 
-
-
 // const ArticleId = (props) => {
 //   const { userArticle } = props;
 
@@ -106,8 +104,6 @@
 
 // export default ArticleId;
 
-
-
 import { Fragment } from "react";
 import CustomHead from "../../../components/layout/CustomHead";
 import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
@@ -135,28 +131,43 @@ const ArticleId = (props) => {
 };
 
 async function fetchArticles() {
-  // Fetch articles from the API endpoint
-  const res = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=20&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+  // Fetch articles from the first API endpoint
+  const res1 = await fetch(
+    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=10&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
 
-  if (!res.ok) {
+  if (!res1.ok) {
     throw new Error(
-      `Failed to fetch articles - Error ${res.status}: ${res.statusText}`
+      `Failed to fetch articles - Error ${res1.status}: ${res1.statusText}`
     );
   }
 
-  const data = await res.json();
-  const articles = data.articles;
-
-  const filteredArticles = articles.filter(
+  const data1 = await res1.json();
+  const articles1 = data1.articles.filter(
     (article) =>
       article.author !== null &&
       article.description !==
         "The latest five minute news bulletin from BBC World Service."
   );
 
-  return filteredArticles;
+  // Fetch articles from the second API endpoint
+  const res2 = await fetch(
+    `https://newsapi.org/v2/everything?sources=bbc-news&q=australia&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+  );
+
+  if (!res2.ok) {
+    throw new Error(
+      `Failed to fetch articles - Error ${res2.status}: ${res2.statusText}`
+    );
+  }
+
+  const data2 = await res2.json();
+  const articles2 = data2.articles;
+
+  // Combine the results from both API endpoints
+  const combinedArticles = [...articles1, ...articles2];
+
+  return combinedArticles;
 }
 
 export const getServerSideProps = async (context) => {
