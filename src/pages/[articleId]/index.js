@@ -34,9 +34,17 @@ async function fetchArticles() {
   let combinedArticles = [];
   // fetch articles in body
   const res1 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=21&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=15&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
+
   const data1 = await res1.json();
+
+  if (!res1.ok) {
+    throw new Error(
+      `Failed to fetch posts - Error ${response.status}: ${data1.message}`
+    );
+  }
+
   const articles = data1.articles;
   const articles1 = articles.filter(
     (article) =>
@@ -44,17 +52,24 @@ async function fetchArticles() {
       article.description !==
         "The latest five minute news bulletin from BBC World Service."
   );
-  // articles1.splice(0, 2);
 
   // fetch hero section articles
   const res2 = await fetch(
-    // `https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=${process.env.NEWS_API_KEY}`
     `https://newsapi.org/v2/everything?sources=bbc-news&q=australia&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
+
   const data2 = await res2.json();
+
+  if (!res2.ok) {
+    throw new Error(
+      `Failed to fetch posts - Error ${response.status}: ${data2.message}`
+    );
+  }
+
   const articles2 = data2.articles;
 
   combinedArticles = [...articles1, ...articles2];
+  console.log("combinedArticles", combinedArticles);
 
   return combinedArticles;
 }
@@ -77,7 +92,6 @@ export const getStaticPaths = async () => {
 // STATIC SITE GENERATION
 export const getStaticProps = async (context) => {
   const combinedArticles = await fetchArticles();
-
   //  Store params id value (article USER wants!)
   const articleQuery = context.params.articleId; // This articleId is passed in through click
   //  Filters articles array to match & return article passed in params

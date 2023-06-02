@@ -34,7 +34,7 @@ export default function Home({
 export const getStaticProps = async () => {
   // fetch articles in body
   const res1 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=21&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=15&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
 
     // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}` //abc news-au
   );
@@ -47,12 +47,10 @@ export const getStaticProps = async () => {
       article.description !==
         "The latest five minute news bulletin from BBC World Service."
   );
-  // articles1.splice(0, 2);
+  // console.log("articles1 in the body are: ", articles1);
 
   // fetch hero section articles
   const res2 = await fetch(
-    // `https://jsonplaceholder.typicode.com/posts?_limit=15`
-    // `https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
     `https://newsapi.org/v2/everything?sources=bbc-news&q=australia&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
 
