@@ -1,7 +1,7 @@
 import CustomHead from "../../components/layout/CustomHead";
 import { Inter } from "next/font/google";
 import { Fragment } from "react";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import ArticlesList from "../../components/mapping/ArticlesList/ArticlesList";
 import HeroSection from "../../components/HeroSection/HeroSection";
 // import styles from "./index.module.scss";
@@ -9,13 +9,12 @@ import HeroSection from "../../components/HeroSection/HeroSection";
 const inter = Inter({ subsets: ["latin"] }); ////////TO BE FIXED////
 
 export default function Home({
-  headLineArticles,
+  bodyArticles,
   heroSectionArticles,
-  userArticle,
 }) {
-  // Conditionally render the ArticleTitle component only on dynamic endpoint visit
-  const router = useRouter();
-  const isDynamicRoute = true;
+  // // Conditionally render the ArticleTitle component only on dynamic endpoint visit
+  // const router = useRouter();
+  // // const isDynamicRoute = true;
   // router.route === "/[articleTitle]";
   const category = "";
   return (
@@ -24,8 +23,8 @@ export default function Home({
 
       <HeroSection articles2={heroSectionArticles} />
 
-      {headLineArticles.length > 0 && (
-        <ArticlesList articles1={headLineArticles} category={category} />
+      {bodyArticles.length > 0 && (
+        <ArticlesList articles1={bodyArticles} category={category} />
       )}
     </Fragment>
   );
@@ -34,16 +33,22 @@ export default function Home({
 export const getStaticProps = async () => {
   // fetch articles in body
   const res1 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=15&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=10&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
 
-    // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}` //abc news-au
+    // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}` //abc news-au
   );
 
   const data1 = await res1.json();
+
+   if (!res1.ok) {
+     throw new Error(
+       `Failed to fetch posts - Error ${res1.status}: ${data1.message}`
+     );
+   }
   const articles = data1.articles;
   const articles1 = articles.filter(
     (article) =>
-      article.author !== null ||
+      article.author !== null &&
       article.description !==
         "The latest five minute news bulletin from BBC World Service."
   );
@@ -55,12 +60,18 @@ export const getStaticProps = async () => {
   );
 
   const data2 = await res2.json();
+
+    if (!res2.ok) {
+      throw new Error(
+        `Failed to fetch posts - Error ${res2.status}: ${data2.message}`
+      );
+    }
   const articles2 = data2.articles;
 
   return {
     props: {
       heroSectionArticles: articles2,
-      headLineArticles: articles1,
+      bodyArticles: articles1,
     },
     revalidate: 60,
   };

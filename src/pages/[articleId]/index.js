@@ -2,15 +2,11 @@ import { Fragment } from "react";
 import CustomHead from "../../../components/layout/CustomHead";
 import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
 
-// let combinedArticles = [];
+
 
 const ArticleId = (props) => {
-  const {
-    // headLineArticles, heroSectionArticles,
-    userArticle,
-  } = props;
+  const { userArticle } = props;
 
-  // console.log("@@@userArticle is: ", userArticle);
   const category = "";
   return (
     <Fragment>
@@ -34,21 +30,21 @@ async function fetchArticles() {
   let combinedArticles = [];
   // fetch articles in body
   const res1 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=15&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=10&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
   );
 
   const data1 = await res1.json();
 
   if (!res1.ok) {
     throw new Error(
-      `Failed to fetch posts - Error ${response.status}: ${data1.message}`
+      `Failed to fetch posts - Error ${res1.status}: ${data1.message}`
     );
   }
 
   const articles = data1.articles;
   const articles1 = articles.filter(
     (article) =>
-      article.author !== null ||
+      article.author !== null &&
       article.description !==
         "The latest five minute news bulletin from BBC World Service."
   );
@@ -62,23 +58,23 @@ async function fetchArticles() {
 
   if (!res2.ok) {
     throw new Error(
-      `Failed to fetch posts - Error ${response.status}: ${data2.message}`
+      `Failed to fetch posts - Error ${res2.status}: ${data2.message}`
     );
   }
 
   const articles2 = data2.articles;
 
   combinedArticles = [...articles1, ...articles2];
-  console.log("combinedArticles", combinedArticles);
+  // console.log("@@@ is combinedArticles is:", combinedArticles);
 
   return combinedArticles;
 }
 
 export const getStaticPaths = async () => {
-  const combinedArticles = await fetchArticles();
+  const combinedArticles1 = await fetchArticles();
 
   // Pull ALL the ids out of the articles array ONLY
-  const titleList = combinedArticles.map((article) => article.title);
+  const titleList = combinedArticles1.map((article) => article.title);
   //Pre-build ALL the URL paths for all existing titles in array
   const paths = titleList.map((title) => ({
     params: { articleId: title.toString() },
@@ -91,14 +87,15 @@ export const getStaticPaths = async () => {
 
 // STATIC SITE GENERATION
 export const getStaticProps = async (context) => {
-  const combinedArticles = await fetchArticles();
+  const combinedArticles2 = await fetchArticles();
   //  Store params id value (article USER wants!)
-  const articleQuery = context.params.articleId; // This articleId is passed in through click
+  const articleQuery = await context.params.articleId; // This articleId is passed in through click
   //  Filters articles array to match & return article passed in params
-  const articleMatch = combinedArticles.filter(
+  const articleMatch = combinedArticles2.filter(
     (article) => article.title.toString() === articleQuery
   );
 
+  console.log("@@@@##articleMatch is: ", articleMatch);
   return {
     props: {
       userArticle: articleMatch[0],
