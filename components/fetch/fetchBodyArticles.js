@@ -1,7 +1,7 @@
 async function fetchBodyArticles() {
   // fetch articles in body
   const res2 = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=23&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&pageSize=25&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
 
     // `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}` //abc news-au
   );

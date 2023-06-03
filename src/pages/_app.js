@@ -1,7 +1,8 @@
 import "@/styles/scss/main.scss";
 import Layout from "../../components/layout/Layout";
 import Script from "next/script";
-import { Fragment } from "react";
+import { Fragment, Suspense } from "react";
+import Loader from "../../components/Loader/index";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -18,12 +19,11 @@ export default function App({ Component, pageProps }) {
   gtag('js', new Date());
 
   gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}')`}
-        
       </Script>
       <Layout>
+        <Suspense fallback={<Loader />} />
         <Component {...pageProps} />
       </Layout>
     </Fragment>
   );
 }
-

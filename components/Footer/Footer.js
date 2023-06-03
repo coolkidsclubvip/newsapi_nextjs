@@ -6,13 +6,13 @@ function Footer() {
   return (
     <div className={styles.container}>
       <div className={styles.footer1}>
-        <Link href={"/about"}>
-          <span className={styles.about}>About</span>
+        <Link href={"/about"} className={styles.navlink}>
+          <span>About</span>
         </Link>{" "}
-        <Link href={"/privacy"}>
+        <Link href={"/privacy"} className={styles.navlink}>
           <span className={styles.privacy}>Privacy</span>
         </Link>
-        <Link href={"/contact"}>
+        <Link href={"/contact"} className={styles.navlink}>
           <span className={styles.privacy}>Contact</span>
         </Link>
       </div>

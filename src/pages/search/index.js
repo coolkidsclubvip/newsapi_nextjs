@@ -37,10 +37,10 @@ export async function getServerSideProps(context) {
   }
 
   const res = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&q=${query}&pageSize=21&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&q=${query}&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
   );
   const data = await res.json();
-
+console.log("@@search data is:",data);
   return {
     props: {
       results: data.articles || [],
