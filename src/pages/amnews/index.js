@@ -2,6 +2,7 @@ import React from "react";
 import CustomHead from "../../../components/layout/CustomHead";
 import { Fragment } from "react";
 import ArticlesList from "../../../components/mapping/ArticlesList/ArticlesList";
+import fetchAmArticles from "../../../components/fetch/fetchAmArticles";
 
 function AmNews({ amArticles }) {
   const category = "amnews/";
@@ -17,11 +18,7 @@ function AmNews({ amArticles }) {
 }
 
 export const getStaticProps = async () => {
-  const response = await fetch(
-    `https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
-  );
-  const data = await response.json();
-  const articles = data.articles;
+ const articles= await fetchAmArticles(); 
   articles.category = "amnews";
   // Returned data as props
   return {
