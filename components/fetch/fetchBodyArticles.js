@@ -16,10 +16,12 @@ async function fetchBodyArticles() {
   const articles = data2.articles;
   const articles2 = articles.filter(
     (article) =>
-      article.author !== null &&
-      article.description !==
-        "The latest five minute news bulletin from BBC World Service."
+      (article.author !== null &&
+        article.description !==
+          "The latest five minute news bulletin from BBC World Service.") 
   );
+
+
   // console.log("articles2 in the body are: ", articles2);
 
   return articles2;

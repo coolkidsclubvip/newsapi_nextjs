@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import CustomHead from "../../components/layout/CustomHead";
 import { Inter } from "next/font/google";
 import { Fragment } from "react";

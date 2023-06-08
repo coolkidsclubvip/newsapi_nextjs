@@ -25,6 +25,7 @@ function ArticleDetail({
       <div className="container card border-0">
         <Image
           src={urlToImage}
+          as="image"
           className="card-img-top"
           alt={title}
           layout="responsive"

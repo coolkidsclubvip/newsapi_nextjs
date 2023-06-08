@@ -108,10 +108,16 @@ module.exports = (phase) => {
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
   };
 
+  //Next.js's built-in scroll restoration feature
+  const experimental = {
+    scrollRestoration: true,
+  };
+
   // Next.config returns an object
   return {
     reactStrictMode,
     images,
     env,
+    experimental,
   };
 };
