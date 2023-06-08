@@ -27,9 +27,10 @@ const ArticleId = (props) => {
 };
 
 async function getCombinedArticles() {
-  const articles1 = await fetchHeroArticles();
+  // const articles1 = await fetchHeroArticles();
   const articles2 = await fetchBodyArticles();
-  const combinedArticles = [...articles1, ...articles2];
+  const combinedArticles = articles2;
+  // [...articles1, ...articles2];
   return combinedArticles;
 }
 

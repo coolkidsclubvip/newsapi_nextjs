@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import CustomHead from "../../components/layout/CustomHead";
 import { Inter } from "next/font/google";
 import { Fragment } from "react";
@@ -17,7 +16,7 @@ export default function Home({ bodyArticles, heroArticles }) {
     <Fragment>
       <CustomHead title={"Home"} />
 
-      <HeroSection articles2={heroArticles} />
+      {/* <HeroSection articles2={heroArticles} /> */}
 
       {bodyArticles.length > 0 && (
         <ArticlesList articles1={bodyArticles} category={category} />
