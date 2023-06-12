@@ -3,8 +3,19 @@ import CustomHead from "../../components/layout/CustomHead";
 import ArticleDetail from "../../components/ArticleDetail/ArticleDetail";
 import fetchBodyArticles from "../../components/fetch/fetchBodyArticles";
 import fetchHeroArticles from "../../components/fetch/fetchHeroArticles";
+import getCombinedArticles from "../../components/fetch/getCombinedArticles";
+import {useRouter} from "next/router";
+import Loader from "../../components/Loader/index";
 
 const ArticleId = (props) => {
+
+  console.log("[Articleid].js page is running");
+
+  const router = useRouter()
+  if(router.isFallback) {
+    return (<><Loader/></>)
+  }
+  
   const { userArticle } = props;
   const category = "";
   return (
@@ -25,13 +36,6 @@ const ArticleId = (props) => {
   );
 };
 
-async function getCombinedArticles() {
-  const articles1 = await fetchHeroArticles();
-  const articles2 = await fetchBodyArticles();
-  const combinedArticles = [...articles1, ...articles2];
-  return combinedArticles;
-}
-
 export const getStaticPaths = async () => {
   const combinedArticles = await getCombinedArticles();
   // Pull ALL the ids out of the articles array ONLY
@@ -40,9 +44,11 @@ export const getStaticPaths = async () => {
   const paths = titleList.map((title) => ({
     params: { articleId: title.toString() },
   }));
+
+  console.log("#####$$$$$paths: ", paths);
   return {
     paths,
-    fallback: false,
+    fallback:true,
   };
 };
 
@@ -50,7 +56,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const combinedArticles = await getCombinedArticles();
   //  Store params id value (article USER wants!)
-  const articleQuery = context.params.articleId; // This articleId is passed in through click
+  const articleQuery = await context.params.articleId; // This articleId is passed in through click
   //  Filters articles array to match & return article passed in params
   const articleMatch = combinedArticles.filter(
     (article) => article.title.toString() === articleQuery

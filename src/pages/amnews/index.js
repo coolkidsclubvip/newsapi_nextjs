@@ -5,7 +5,7 @@ import ArticlesList from "../../../components/mapping/ArticlesList/ArticlesList"
 import fetchAmArticles from "../../../components/fetch/fetchAmArticles";
 
 function AmNews({ amArticles }) {
-  const category = "amnews/";
+  const category = "amnews";
   return (
     <Fragment>
       <CustomHead title={"American News"} />
@@ -19,7 +19,7 @@ function AmNews({ amArticles }) {
 
 export const getStaticProps = async () => {
   const articles = await fetchAmArticles();
-  articles.category = "amnews";
+ 
   // Returned data as props
   return {
     props: {

@@ -26,6 +26,8 @@ export default function Home({ bodyArticles, heroArticles }) {
   );
 }
 
+
+
 export const getStaticProps = async () => {
   const articles1 = await fetchHeroArticles();
   const articles2 = await fetchBodyArticles();
