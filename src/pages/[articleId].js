@@ -1,8 +1,8 @@
 import { Fragment, useState } from "react";
-import CustomHead from "../../../components/layout/CustomHead";
-import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
-import fetchBodyArticles from "../../../components/fetch/fetchBodyArticles";
-import fetchHeroArticles from "../../../components/fetch/fetchHeroArticles";
+import CustomHead from "../../components/layout/CustomHead";
+import ArticleDetail from "../../components/ArticleDetail/ArticleDetail";
+import fetchBodyArticles from "../../components/fetch/fetchBodyArticles";
+import fetchHeroArticles from "../../components/fetch/fetchHeroArticles";
 
 const ArticleId = (props) => {
   const { userArticle } = props;
@@ -50,7 +50,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const combinedArticles = await getCombinedArticles();
   //  Store params id value (article USER wants!)
-  const articleQuery = await context.params.articleId; // This articleId is passed in through click
+  const articleQuery = context.params.articleId; // This articleId is passed in through click
   //  Filters articles array to match & return article passed in params
   const articleMatch = combinedArticles.filter(
     (article) => article.title.toString() === articleQuery

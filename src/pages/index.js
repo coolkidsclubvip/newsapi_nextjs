@@ -12,11 +12,11 @@ import fetchHeroArticles from "../../components/fetch/fetchHeroArticles";
 const inter = Inter({ subsets: ["latin"] }); ////////TO BE FIXED////
 
 export default function Home({ bodyArticles, heroArticles }) {
-  const category = "home";
+  const category = "";
   return (
     <Fragment>
       <CustomHead title={"Home"} />
-<Link href="/home"> to Home</Link>
+
       <HeroSection articles2={heroArticles} />
 
       {bodyArticles.length > 0 && (

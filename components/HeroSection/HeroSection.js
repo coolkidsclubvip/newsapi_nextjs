@@ -16,7 +16,7 @@ function HeroSection({ articles2 }) {
           {articles2.map((article, index) => (
             <Fragment key={index}>
               <div className={`carousel-item ${index === 0 ? "active" : ""}`}>
-                <Link href="home/[articleId]" as={`home/${article.title}`}>
+                <Link href="/[articleId]" as={`/${article.title}`}>
                   <Image
                     src={article.urlToImage}
                     className="d-block w-100"
