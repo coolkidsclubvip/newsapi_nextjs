@@ -67,7 +67,7 @@ export const getStaticProps = async (context) => {
     props: {
       userArticle: articleMatch[0],
     },
-    revalidate: 60,
+    revalidate: 60*60,
   };
 };
 

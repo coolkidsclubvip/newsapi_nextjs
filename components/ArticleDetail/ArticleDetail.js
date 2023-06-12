@@ -3,7 +3,8 @@ import Link from "next/link";
 import moment from "moment";
 import styles from "./ArticleDetail.module.scss";
 import Image from "next/image";
-
+import { useRouter } from "next/router";
+import Loader from "../Loader/index";
 
 function ArticleDetail({
   id,
@@ -17,9 +18,14 @@ function ArticleDetail({
   category,
   query,
 }) {
+  
+  const router = useRouter();
+  if (router.isFallback) {
+    return <Loader />; 
+  }
+
   const postedAgo = moment(publishedAt).fromNow();
 
-  // console.log("userarticle's query:", query);
   return (
     <div className={styles.articleDetail}>
       <div className="container card border-0">
