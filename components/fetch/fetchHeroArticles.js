@@ -11,7 +11,13 @@ async function fetchHeroArticles() {
       `Failed to fetch posts - Error ${res1.status}: ${data1.message}`
     );
   }
-  const articles1 = data1.articles;
+  const articles = data1.articles;
+console.log("&&***articles1:", articles);
+ const  articles1= articles.filter(
+    (article) =>
+      article.urlToImage !==
+      "https:////m.files.bbci.co.uk/modules/bbc-morph-sport-seo-meta/1.23.3/images/bbc-sport-logo.png"
+  );
 
   return articles1;
 }

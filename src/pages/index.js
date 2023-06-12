@@ -1,10 +1,10 @@
 import CustomHead from "../../components/layout/CustomHead";
 import { Inter } from "next/font/google";
 import { Fragment } from "react";
-// import { useRouter } from "next/router";
+
 import ArticlesList from "../../components/mapping/ArticlesList/ArticlesList";
 import HeroSection from "../../components/HeroSection/HeroSection";
-// import styles from "./index.module.scss";
+
 import fetchBodyArticles from "../../components/fetch/fetchBodyArticles";
 import fetchHeroArticles from "../../components/fetch/fetchHeroArticles";
 
