@@ -12,8 +12,7 @@ async function fetchHeroArticles() {
     );
   }
   const articles = data1.articles;
-console.log("&&***articles1:", articles);
- const  articles1= articles.filter(
+  const articles1 = articles.filter(
     (article) =>
       article.urlToImage !==
       "https:////m.files.bbci.co.uk/modules/bbc-morph-sport-seo-meta/1.23.3/images/bbc-sport-logo.png"
