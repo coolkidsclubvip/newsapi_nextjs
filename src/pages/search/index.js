@@ -17,7 +17,7 @@ console.log("router.query is", router.query);
         {results.length === 0 ? (
           <div className={styles.body}>
             <p>
-              The keyword  <b><i>"{query}"</i></b> you are searching returns no result.
+              The keyword <b><i>{query}</i></b> you are searching returns no result.
               Please Try another keyword.
             </p>
           </div>
