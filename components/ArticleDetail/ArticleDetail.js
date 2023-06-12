@@ -3,7 +3,7 @@ import Link from "next/link";
 import moment from "moment";
 import styles from "./ArticleDetail.module.scss";
 import Image from "next/image";
-import Loader from "../Loader/index";
+
 
 function ArticleDetail({
   id,

@@ -1,6 +1,7 @@
 import CustomHead from "../../components/layout/CustomHead";
 import { Inter } from "next/font/google";
 import { Fragment } from "react";
+import Link from "next/link";
 
 import ArticlesList from "../../components/mapping/ArticlesList/ArticlesList";
 import HeroSection from "../../components/HeroSection/HeroSection";
@@ -15,7 +16,7 @@ export default function Home({ bodyArticles, heroArticles }) {
   return (
     <Fragment>
       <CustomHead title={"Home"} />
-
+<Link href="/home"> to Home</Link>
       <HeroSection articles2={heroArticles} />
 
       {bodyArticles.length > 0 && (
