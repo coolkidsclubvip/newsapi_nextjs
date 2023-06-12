@@ -1,12 +1,15 @@
-import { Fragment } from "react";
-import CustomHead from "../../components/layout/CustomHead";
-import ArticleDetail from "../../components/ArticleDetail/ArticleDetail";
-import fetchBodyArticles from "../../components/fetch/fetchBodyArticles";
-import fetchHeroArticles from "../../components/fetch/fetchHeroArticles";
+import { Fragment,useState } from "react";
+import CustomHead from "../../../components/layout/CustomHead";
+import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
+import fetchBodyArticles from "../../../components/fetch/fetchBodyArticles";
+import fetchHeroArticles from "../../../components/fetch/fetchHeroArticles";
+
 
 const ArticleId = (props) => {
-  const { userArticle } = props;
 
+
+
+  const { userArticle } = props;
   const category = "";
   return (
     <Fragment>
@@ -27,10 +30,9 @@ const ArticleId = (props) => {
 };
 
 async function getCombinedArticles() {
-  // const articles1 = await fetchHeroArticles();
+  const articles1 = await fetchHeroArticles();
   const articles2 = await fetchBodyArticles();
-  const combinedArticles = articles2;
-  // [...articles1, ...articles2];
+  const combinedArticles = [...articles1, ...articles2];
   return combinedArticles;
 }
 
@@ -39,8 +41,10 @@ export const getStaticPaths = async () => {
   // Pull ALL the ids out of the articles array ONLY
   const titleList = combinedArticles.map((article) => article.title);
   //Pre-build ALL the URL paths for all existing titles in array
-  const paths = titleList.map((title) => ({
-    params: { articleId: title.toString() },
+  const paths = titleList.map((title) => (
+    
+    {
+    params: { articleId:title.toString() },
   }));
   return {
     paths,

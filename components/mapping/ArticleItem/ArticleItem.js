@@ -17,7 +17,7 @@ function ArticleItem({
     <div className={styles.articleItem}>
       {" "}
       <div className="card h-100 shadow border-0">
-        <Link href={`${category}[articleId]`} as={`${category}${title}`}>
+        <Link href={`${category}[articleId]`} as={`${category}/${title}`}>
           <div className={styles.imageContainer}>
             <Image
               src={urlToImage}

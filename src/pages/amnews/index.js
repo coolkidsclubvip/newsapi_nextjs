@@ -18,14 +18,14 @@ function AmNews({ amArticles }) {
 }
 
 export const getStaticProps = async () => {
- const articles= await fetchAmArticles(); 
+  const articles = await fetchAmArticles();
   articles.category = "amnews";
   // Returned data as props
   return {
     props: {
       amArticles: articles,
     },
-    revalidate: 60,
+    revalidate: 60 * 60,
   };
 };
 
