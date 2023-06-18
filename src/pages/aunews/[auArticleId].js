@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import CustomHead from "../../../components/layout/CustomHead";
 import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
+import fetchAuArticles from "../../../components/fetch/fetchAuArticles";
 
 // let combinedArticles = [];
 
@@ -28,19 +29,10 @@ const auArticleId = (props) => {
   );
 };
 
-async function fetchArticles() {
-  // fetch articles in body
-  const response = await fetch(
-    `https://newsapi.org/v2/top-headlines?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
-  );
-  const data = await response.json();
-  // const articles = await res.json();
-  const articles = data.articles;
-  return articles;
-}
+
 
 export const getStaticPaths = async () => {
-  const articles = await fetchArticles();
+  const articles = await fetchAuArticles();
 
   // Pull ALL the ids out of the articles array ONLY
   const titleList = articles.map((article) => article.title);
@@ -56,7 +48,7 @@ export const getStaticPaths = async () => {
 
 // STATIC SITE GENERATION
 export const getStaticProps = async (context) => {
-  const articles = await fetchArticles();
+  const articles = await fetchAuArticles();
   //  Store params id value (article USER wants!)
   const articleQuery = context.params.auArticleId; // This auArticleId is passed in through click
   //  Filters articles array to match & return article passed in params
