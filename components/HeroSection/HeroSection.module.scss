@@ -1,26 +1,26 @@
 @use "@/styles/scss/abstracts/" as *;
 
 .heroSection {
-  position: relative;
+  position:flex;
   margin: 0 auto;
-  width: 80vw;
-  height: 78vh;
+  width: 60vw;
+  // height: 80vh;
   overflow: hidden;
-  //   display: flex; /* Added */
-  //   align-items: center; /* Added */
-  //   justify-content: center; /* Added */
+  margin-bottom: 15vh;
+  align-items: center;
+  background-color: red;
 }
 .hero_caption {
-  width: 100%;
-  bottom: 30%;
-  // left: 0;
+  height: auto;
+  // color: #000000;
+  text-align: center;
 
-  height: 6rem;
-  color: #ffffff;
-  background-color: $primaryColor;
-  margin-bottom: 10%;
-  line-height: 6rem;
-  font-size: 1.3rem;
+  font-weight: $captionFontWeight;
+  font-size: 1.5vw;
   opacity: 0.9;
-  z-index: 9;
+  z-index: 99;
+  color: rgb(0, 0, 0);
+  // position: absolute;
+  bottom: 20vh;
 }
+
