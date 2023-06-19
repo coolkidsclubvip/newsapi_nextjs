@@ -10,15 +10,15 @@
   width: 30vw;
   height: 29vh;
   overflow: hidden;
-   @media (max-width: 767px) {
+   @media (max-width:1199px) {
     width: 100vw;
-    height:20vh;
+    height:auto;
   }
 }
 .articleImage {
   position: relative;
   width: 30vw;
-
+height: 29vh;
   z-index: 0;
 
   &:hover {
@@ -26,9 +26,9 @@
   }
 
 
-  @media (max-width: 767px) {
+  @media (max-width: 1199px) {
     width: 100%;
-    height: 20vh;
+    height: 100%;
   }
 
 }

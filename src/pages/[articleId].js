@@ -1,19 +1,17 @@
 import { Fragment, useState } from "react";
 import CustomHead from "../../components/layout/CustomHead";
 import ArticleDetail from "../../components/ArticleDetail/ArticleDetail";
-import fetchBodyArticles from "../../components/fetch/fetchBodyArticles";
-import fetchHeroArticles from "../../components/fetch/fetchHeroArticles";
 import getCombinedArticles from "../../components/fetch/getCombinedArticles";
 import {useRouter} from "next/router";
 import Loader from "../../components/Loader/index";
 
 const ArticleId = (props) => {
 
-  console.log("[Articleid].js page is running");
+ 
 
   const router = useRouter()
   if(router.isFallback) {
-    return (<><Loader/></>)
+    return (<Loader/>)
   }
   
   const { userArticle } = props;
@@ -45,7 +43,7 @@ export const getStaticPaths = async () => {
     params: { articleId: title.toString() },
   }));
 
-  console.log("#####$$$$$paths: ", paths);
+
   return {
     paths,
     fallback:true,
@@ -62,7 +60,7 @@ export const getStaticProps = async (context) => {
     (article) => article.title.toString() === articleQuery
   );
 
-  console.log("@@@@##articleMatch is: ", articleMatch);
+ 
   return {
     props: {
       userArticle: articleMatch[0],

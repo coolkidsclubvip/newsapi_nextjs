@@ -10,7 +10,7 @@ async function fetchAuArticles() {
       `Failed to fetch posts - Error ${res.status}: ${data.message}`
     );
   }
-console.log("auARTICLES ARE:", articles);
+console.log("$$$$%%%auARTICLES ARE:", articles);
 
  const articles2 = articles.filter(
    (article) =>

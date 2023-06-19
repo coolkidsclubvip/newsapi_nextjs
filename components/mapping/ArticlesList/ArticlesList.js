@@ -4,7 +4,7 @@ import ArticleItem from "../ArticleItem/ArticleItem";
 function ArticlesList({ articles1, category }) {
   return (
     <div className={styles.articlesList}>
-      <div className="row row-cols-1 row-cols-xl-3 row-cols-md-2 g-4 w-100">
+      <div className="row row-cols-1 row-cols-xl-3 row-cols-md-1 g-4 w-100">
         {articles1.map((article, index) => (
           <div className="col-sm-12 col-sm-6" key={index}>
             <ArticleItem
