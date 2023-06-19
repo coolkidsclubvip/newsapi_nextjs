@@ -1,0 +1,68 @@
+@use "@/styles/scss/abstracts" as *;
+
+%pageBox {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+
+
+  a,
+  button {
+    border: none;
+    border-radius: 0px;
+    z-index: 0;
+    box-shadow: none;
+    color: $fontColorDark;
+    &:focus{
+      border: none !important;
+    }
+
+    &:hover {
+      font-size: 1.5rem;
+      background-color: $secondaryColor;
+      color: $fontColorLight;
+    }
+
+    .icon {
+      z-index: 100;
+      font-size: 1em;
+      transition: all 0.1s ease-in-out;
+      // background-color: yellowgreen;
+
+      &:hover {
+        color: $fontColorLight;
+      }
+    }
+  }
+}
+
+.currentPage {
+  @extend %pageBox;
+
+  a,
+  button {
+    background-color: $secondaryColor;
+    color: black;
+
+    .icon,
+    &:hover .icon {
+      color: $fontColorLight;
+    }
+    &:focus {
+      border: none !important;
+      background-color: $secondaryColor;
+    }
+  }
+}
+
+.indexedPage {
+  @extend %pageBox;
+
+  a,
+  button {
+    background-color: $backgroundColor;
+  }
+  &:hover {
+    color: $fontColorLight;
+  }
+}
