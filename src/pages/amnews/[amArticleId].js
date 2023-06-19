@@ -3,7 +3,6 @@ import CustomHead from "../../../components/layout/CustomHead";
 import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
 import fetchAmArticles from "../../../components/fetch/fetchAmArticles";
 
-// let combinedArticles = [];
 
 const amArticleId = (props) => {
   const { userArticle } = props;

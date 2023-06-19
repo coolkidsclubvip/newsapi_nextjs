@@ -1,6 +1,6 @@
 async function fetchAuArticles() {
  const res = await fetch(
-   `https://newsapi.org/v2/everything?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY1}`
+   `https://newsapi.org/v2/everything?sources=abc-news-au&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY2}`
  );
  const data = await res.json();
  const articles = data.articles;
@@ -10,7 +10,7 @@ async function fetchAuArticles() {
       `Failed to fetch posts - Error ${res.status}: ${data.message}`
     );
   }
-console.log("$$$$%%%auARTICLES ARE:", articles);
+
 
  const articles2 = articles.filter(
    (article) =>

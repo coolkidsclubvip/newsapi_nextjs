@@ -3,13 +3,12 @@ import CustomHead from "../../../components/layout/CustomHead";
 import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
 import fetchAuArticles from "../../../components/fetch/fetchAuArticles";
 
-// let combinedArticles = [];
 
 const auArticleId = (props) => {
-  const {
-    // headLineArticles, heroSectionArticles,
-    userArticle,
-  } = props;
+  const { userArticle } = props;
+
+console.log("@@$$$ userArticle: ", userArticle);
+
   const category = "aunews";
   return (
     <Fragment>
@@ -29,8 +28,6 @@ const auArticleId = (props) => {
   );
 };
 
-
-
 export const getStaticPaths = async () => {
   const articles = await fetchAuArticles();
 
@@ -42,7 +39,7 @@ export const getStaticPaths = async () => {
   }));
   return {
     paths,
-    fallback:false,
+    fallback: false,
   };
 };
 
