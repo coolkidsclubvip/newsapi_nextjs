@@ -41,7 +41,7 @@ export const getStaticPaths = async () => {
   const titleList = articles.map((article) => article.title);
   //Pre-build ALL the URL paths for all existing titles in array
   const paths = titleList.map((title) => ({
-    params: { AuArticleId: title.toString() },
+    params: { auArticleId: title.toString() },
   }));
   return {
     paths,
@@ -53,7 +53,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const articles = await fetchAuArticles();
   //  Store params id value (article USER wants!)
-  const articleQuery = context.params.AuArticleId; // This AuArticleId is passed in through click
+  const articleQuery = context.params.auArticleId; // This auArticleId is passed in through click
   //  Filters articles array to match & return article passed in params
   const articleMatch = articles.filter(
     (article) => article.title.toString() === articleQuery
