@@ -1,27 +1,39 @@
 import styles from "./HeroSection.module.scss";
-import { Fragment } from "react";
+import { Fragment,useEffect,useState } from "react";
 import Link from "next/link";
 import Card from "react-bootstrap/Card";
+import Loader from "../Loader/index";
 
 function HeroSection({ articles2 }) {
+const [isLoading, setIsLoading] = useState(true);
+useEffect(
+  () => {
+    if (articles2) {
+      setIsLoading(false);
+    }
+  },
+  [isLoading]
+);
 
   return (
     <Fragment>
-      <div className={styles.heroSection}>
-        <div
-          id="carouselExampleCaptions"
-          className="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div className="carousel-inner">
-            {articles2.map((article, index) => (
-              <div
-                key={index}
-                className={`carousel-item ${index === 0 ? "active" : ""}`}
-              >
-                <Link href="/[articleId]" as={`/${article.title}`}>
-                  <Card className="border-0 ">
-                
+      {isLoading === true ? (
+        <Loader />
+      ) : (
+        <div className={styles.heroSection}>
+          <div
+            id="carouselExampleCaptions"
+            className="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div className="carousel-inner">
+              {articles2.map((article, index) => (
+                <div
+                  key={index}
+                  className={`carousel-item ${index === 0 ? "active" : ""}`}
+                >
+                  <Link href="/[articleId]" as={`/${article.title}`}>
+                    <Card className="border-0 ">
                       <Card.Img
                         variant="top"
                         src={article.urlToImage}
@@ -33,38 +45,38 @@ function HeroSection({ articles2 }) {
                           <b>{article.title}</b>
                         </Card.Text>
                       </Card.Body>
-                   
-                  </Card>
-                </Link>
-              </div>
-            ))}
+                    </Card>
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="prev"
+            >
+              <span
+                className="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="next"
+            >
+              <span
+                className="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
         </div>
-      </div>
+      )}
     </Fragment>
   );
 }

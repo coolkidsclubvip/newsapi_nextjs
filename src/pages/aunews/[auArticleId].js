@@ -2,12 +2,18 @@ import { Fragment } from "react";
 import CustomHead from "../../../components/layout/CustomHead";
 import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
 import fetchAuArticles from "../../../components/fetch/fetchAuArticles";
+import Loader from "../../../components/Loader/index";
+import { useRouter } from "next/router";
 
+const AuArticleId = (props) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <Loader />;
+  }
 
-const auArticleId = (props) => {
   const { userArticle } = props;
 
-console.log("@@$$$ userArticle: ", userArticle);
+  console.log("@@$$$ userArticle: ", userArticle);
 
   const category = "aunews";
   return (
@@ -35,11 +41,11 @@ export const getStaticPaths = async () => {
   const titleList = articles.map((article) => article.title);
   //Pre-build ALL the URL paths for all existing titles in array
   const paths = titleList.map((title) => ({
-    params: { auArticleId: title.toString() },
+    params: { AuArticleId: title.toString() },
   }));
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -47,7 +53,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const articles = await fetchAuArticles();
   //  Store params id value (article USER wants!)
-  const articleQuery = context.params.auArticleId; // This auArticleId is passed in through click
+  const articleQuery = context.params.AuArticleId; // This AuArticleId is passed in through click
   //  Filters articles array to match & return article passed in params
   const articleMatch = articles.filter(
     (article) => article.title.toString() === articleQuery
@@ -61,4 +67,4 @@ export const getStaticProps = async (context) => {
   };
 };
 
-export default auArticleId;
+export default AuArticleId;

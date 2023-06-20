@@ -13,6 +13,10 @@ const inter = Inter({ subsets: ["latin"] }); ////////TO BE FIXED////
 
 export default function Home({ bodyArticles, heroArticles }) {
   const category = "";
+
+
+
+
   return (
     <Fragment>
       <CustomHead title={"Home"} />

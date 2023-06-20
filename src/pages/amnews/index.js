@@ -1,16 +1,26 @@
 import React from "react";
 import CustomHead from "../../../components/layout/CustomHead";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import ArticlesList from "../../../components/mapping/ArticlesList/ArticlesList";
 import fetchAmArticles from "../../../components/fetch/fetchAmArticles";
+import Loader from "../../../components/Loader/index";
 
 function AmNews({ amArticles }) {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (amArticles) {
+      setIsLoading(false);
+    }
+  }, [isLoading]);
+
   const category = "amnews";
   return (
     <Fragment>
       <CustomHead title={"American News"} />
 
-      {amArticles.length > 0 && (
+      {isLoading === true ? (
+        <Loader />
+      ) : (
         <ArticlesList articles1={amArticles} category={category} />
       )}
     </Fragment>
@@ -19,7 +29,7 @@ function AmNews({ amArticles }) {
 
 export const getStaticProps = async () => {
   const articles = await fetchAmArticles();
- 
+
   // Returned data as props
   return {
     props: {

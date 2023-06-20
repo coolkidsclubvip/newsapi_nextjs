@@ -1,16 +1,27 @@
 import React from "react";
 import CustomHead from "../../../components/layout/CustomHead";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import ArticlesList from "../../../components/mapping/ArticlesList/ArticlesList";
 import fetchAuArticles from "../../../components/fetch/fetchAuArticles"
+import Loader from "../../../components/Loader/index";
 
 function AuNews({ auArticles }) {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (auArticles) {
+      setIsLoading(false);
+    }
+  }, [isLoading]);
+
+
   const category = "aunews/";
   return (
     <Fragment>
       <CustomHead title={"Australian News"} />
 
-      {auArticles.length > 0 && (
+      {isLoading === true ? (
+        <Loader />
+      ) : (
         <ArticlesList articles1={auArticles} category={category} />
       )}
     </Fragment>
