@@ -23,10 +23,12 @@
   color: white;
   padding: 0 0.5rem;
   margin-left: 3rem;
-  line-height: 3rem;
+  line-height: 2rem;
+  border-radius: 1px;
   background: linear-gradient(#0197e1 0 0) no-repeat;
   background-size: 0%;
-  transition: 0.4s;
+ 
+  
   &:hover {
     color: rgb(255, 255, 255);
     background-size: 100%;
@@ -39,11 +41,9 @@
 }
 
 .customButton {
-  // width: 6rem;
   color: rgb(0, 0, 0);
   background-color: $blueColor;
   //button style:
-  background: $blueColor;
   font-family: inherit;
   padding: 0 1.3rem;
   font-weight: 900;

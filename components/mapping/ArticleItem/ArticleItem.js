@@ -1,7 +1,9 @@
+import { Fragment, useEffect, useState } from "react";
 import styles from "./ArticleItem.module.scss";
 import Image from "next/image";
 import moment from "moment";
 import Link from "next/link";
+import Loader from "../../Loader/index";
 
 function ArticleItem({
   urlToImage,
@@ -11,6 +13,14 @@ function ArticleItem({
   url,
   category,
 }) {
+  // Loader effect when loading
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (urlToImage) {
+      setIsLoading(false);
+    }
+  }, [isLoading]);
+
   const postedAgo = moment(publishedAt).fromNow();
 
   return (
@@ -19,16 +29,20 @@ function ArticleItem({
       <div className="card h-100 shadow border-2">
         <Link href={`${category}/[articleId]`} as={`${category}/${title}`}>
           <div className={styles.imageContainer}>
-            <Image
-              src={urlToImage}
-              className={styles.articleImage}
-              alt={title}
-              // layout="responsive"
-              // fill={true}
-              layout="intrinsic"
-              width={1200}
-              height={675}
-            />
+            {isLoading === true ? (
+              <Loader />
+            ) : (
+              <Image
+                src={urlToImage}
+                className={styles.articleImage}
+                alt={title}
+                // layout="responsive"
+                // fill={true}
+                layout="intrinsic"
+                width={1200}
+                height={675}
+              />
+            )}
           </div>
           <div className="card-body styles.newsBody">
             <h4 className="card-title">

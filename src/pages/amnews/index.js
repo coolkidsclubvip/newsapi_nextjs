@@ -6,6 +6,7 @@ import fetchAmArticles from "../../../components/fetch/fetchAmArticles";
 import Loader from "../../../components/Loader/index";
 
 function AmNews({ amArticles }) {
+  // Loader effect when loading
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     if (amArticles) {

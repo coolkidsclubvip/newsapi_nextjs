@@ -1,19 +1,18 @@
-import { Fragment,useState } from "react";
+import { Fragment, useState } from "react";
 import styles from "./ArticleList.module.scss";
 import ArticleItem from "../ArticleItem/ArticleItem";
 import ArticlePagination from "../../Pagination/ArticlePagination";
 import paginate from "../../../src/lib/paginate";
 
 function ArticlesList({ articles1, category }) {
-
   // pagination function
   const [currentPage, setCurrentPage] = useState(1);
   const handlePageChange = (page) => {
     console.log(page);
     setCurrentPage(page);
   };
-const pageSize= 12;
-const paginatedArticles = paginate(articles1, currentPage, pageSize)
+  const pageSize = 12;
+  const paginatedArticles = paginate(articles1, currentPage, pageSize);
 
   return (
     <Fragment>
@@ -49,5 +48,5 @@ const paginatedArticles = paginate(articles1, currentPage, pageSize)
     </Fragment>
   );
 }
- 
+
 export default ArticlesList;

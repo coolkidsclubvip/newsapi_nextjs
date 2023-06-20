@@ -18,11 +18,13 @@ function ArticleDetail({
   category,
   query,
 }) {
-  
   const router = useRouter();
   if (router.isFallback) {
-    return <Loader />; 
+    return <Loader />;
   }
+
+
+  
 
   const postedAgo = moment(publishedAt).fromNow();
 
@@ -61,7 +63,7 @@ function ArticleDetail({
           </p>
           {/* conditionally check if query exists and render different back path */}
           <span>
-            {query ? (
+            {/* {query ? (
               <Link href={`/search?query=${query}`} className={styles.goBack}>
                 Go Back
               </Link>
@@ -69,7 +71,10 @@ function ArticleDetail({
               <Link href={`/${category}`} className={styles.goBack}>
                 Go Back
               </Link>
-            )}
+            )} */}
+            <button className={styles.goBack} onClick={() => router.back()}>
+              Go Back
+            </button>
           </span>
         </div>
       </div>
