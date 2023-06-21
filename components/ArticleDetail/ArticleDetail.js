@@ -63,18 +63,18 @@ function ArticleDetail({
           </p>
           {/* conditionally check if query exists and render different back path */}
           <span>
-            {/* {query ? (
-              <Link href={`/search?query=${query}`} className={styles.goBack}>
-                Go Back
+            {query ? (
+              <Link href={`/search?query=${query}`}>
+                <button className={styles.goBack}>Go Back</button>
               </Link>
             ) : (
-              <Link href={`/${category}`} className={styles.goBack}>
-                Go Back
+              <Link href={`/${category}`}>
+                <button className={styles.goBack}>Go Back</button>
               </Link>
-            )} */}
-            <button className={styles.goBack} onClick={() => router.back()}>
+            )}
+            {/* <button className={styles.goBack} onClick={() => router.back()}>
               Go Back
-            </button>
+            </button> */}
           </span>
         </div>
       </div>

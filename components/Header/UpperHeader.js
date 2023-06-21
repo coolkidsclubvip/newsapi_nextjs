@@ -48,8 +48,6 @@ function UpperHeader() {
       const response = await fetch(url);
       const data = await response.json();
 
-        console.log("#############data is", data);
-
       if (data.current) {
         setLocation(data.location.name);
         setCurrentCondition(data.current.condition.text);
@@ -62,8 +60,6 @@ function UpperHeader() {
       console.log("Error fetching weather data:", error);
     }
   };
-
-
 
   return (
     <div className={styles.upper_header}>
