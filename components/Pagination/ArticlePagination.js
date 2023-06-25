@@ -3,7 +3,12 @@ import { useState } from "react";
 import lodash from "lodash";
 import Pagination from "react-bootstrap/Pagination";
 
-function ArticlePagination({ itemsCount, pageSize, handlePageChange,currentPage }) {
+function ArticlePagination({
+  itemsCount,
+  pageSize,
+  handlePageChange,
+  currentPage,
+}) {
   // determine how many pages from items quantity and items per page
   const pageCount = Math.ceil(itemsCount / pageSize);
 
@@ -17,8 +22,10 @@ function ArticlePagination({ itemsCount, pageSize, handlePageChange,currentPage 
     <>
       <nav className="mt-5 " aria-label="news pagination">
         <Pagination className="justify-content-center">
-         
-            {pages.map((page, index) => (
+          {" "}
+          {/* <Pagination.Prev /> */}
+          {pages.map((page, index) => (
+            <>
               <Pagination.Item
                 key={index}
                 className={`${
@@ -27,9 +34,10 @@ function ArticlePagination({ itemsCount, pageSize, handlePageChange,currentPage 
                 onClick={() => handlePageChange(page)}
               >
                 <span className={styles.icon}>{page}</span>
-              </Pagination.Item>
-            ))}
-        
+              </Pagination.Item>{" "}
+            </>
+          ))}
+          {/* <Pagination.Next /> */}
         </Pagination>
       </nav>
     </>

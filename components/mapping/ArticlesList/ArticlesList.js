@@ -10,6 +10,7 @@ function ArticlesList({ articles1, category }) {
   const handlePageChange = (page) => {
     console.log(page);
     setCurrentPage(page);
+    // localStorage.setItem("currentPage",currentPage);
   };
   const pageSize = 12;
   const paginatedArticles = paginate(articles1, currentPage, pageSize);
@@ -23,9 +24,9 @@ function ArticlesList({ articles1, category }) {
           handlePageChange={handlePageChange}
           currentPage={currentPage}
         />
-        <div className="row row-cols-1 row-cols-xl-3 row-cols-md-1 g-5 w-100">
+        <div className="row row-cols-1 row-cols-xl-3 row-cols-md-1 g-5 w-100 ">
           {paginatedArticles.map((article, index) => (
-            <div className="col-sm-12 col-sm-6" key={index}>
+            <div className="col-sm-12 col-sm-6 " key={index}>
               <ArticleItem
                 id={article.title}
                 urlToImage={article.urlToImage}
