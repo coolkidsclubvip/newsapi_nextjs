@@ -1,31 +1,60 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import ReactPaginate from "react-paginate";
 import styles from "./ArticleList.module.scss";
 import ArticleItem from "../ArticleItem/ArticleItem";
 import ArticlePagination from "../../Pagination/ArticlePagination";
 import paginate from "../../../src/lib/paginate";
+import { Container } from "react-bootstrap";
 
 function ArticlesList({ articles1, category }) {
-  // pagination function
-  const [currentPage, setCurrentPage] = useState(1);
-  const handlePageChange = (page) => {
-    console.log(page);
-    setCurrentPage(page);
-    // localStorage.setItem("currentPage",currentPage);
+  // React-paginate is below:
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 12;
+  // Simulate fetching items from another resources.
+  // (This could be items from props; or items loaded in a local state
+  // from an API endpoint with useEffect and useState)
+  const endOffset = itemOffset + itemsPerPage;
+
+  const currentItems = articles1.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(articles1.length / itemsPerPage);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % articles1.length;
+
+    setItemOffset(newOffset);
   };
-  const pageSize = 12;
-  const paginatedArticles = paginate(articles1, currentPage, pageSize);
 
   return (
-    <Fragment>
+    <div className="container-fluid">
       <div className={styles.articlesList}>
-        <ArticlePagination
-          itemsCount={articles1.length}
-          pageSize={pageSize}
-          handlePageChange={handlePageChange}
-          currentPage={currentPage}
-        />
-        <div className="row row-cols-1 row-cols-xl-3 row-cols-md-1 g-5 w-100 ">
-          {paginatedArticles.map((article, index) => (
+       {pageCount > 1 && (
+          <ReactPaginate
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={2}
+            pageCount={pageCount}
+            previousLabel="< prev"
+            pageClassName="page-item"
+            pageLinkClassName={styles.pageLink}
+            previousClassName="page-item"
+            previousLinkClassName={styles.prev}
+            nextClassName="page-item"
+            nextLinkClassName={styles.next}
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName={styles.pageLink}
+            containerClassName="pagination"
+            activeClassName={styles.active}
+            renderOnZeroPageCount={null}
+            className={styles.reactPaginate}
+          />)}
+        <div className="row row-cols-xl-3 row-cols-lg-2 row-cols-md-1  w-100 gx-3 ">
+          {currentItems.map((article, index) => (
             <div className="col-sm-12 col-sm-6 " key={index}>
               <ArticleItem
                 id={article.title}
@@ -39,14 +68,31 @@ function ArticlesList({ articles1, category }) {
             </div>
           ))}
         </div>
-        <ArticlePagination
-          itemsCount={articles1.length}
-          pageSize={pageSize}
-          handlePageChange={handlePageChange}
-          currentPage={currentPage}
-        />
+        {pageCount > 1 && (
+          <ReactPaginate
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={2}
+            pageCount={pageCount}
+            previousLabel="< prev"
+            pageClassName="page-item"
+            pageLinkClassName={styles.pageLink}
+            previousClassName="page-item"
+            previousLinkClassName={styles.prev}
+            nextClassName="page-item"
+            nextLinkClassName={styles.next}
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName={styles.pageLink}
+            containerClassName="pagination"
+            activeClassName={styles.active}
+            renderOnZeroPageCount={null}
+            className={styles.reactPaginate}
+          />
+        )}
       </div>
-    </Fragment>
+    </div>
   );
 }
 

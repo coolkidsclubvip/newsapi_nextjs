@@ -12,6 +12,7 @@ function ArticleItem({
   publishedAt,
   url,
   category,
+ 
 }) {
   // Loader effect when loading
   const [isLoading, setIsLoading] = useState(true);

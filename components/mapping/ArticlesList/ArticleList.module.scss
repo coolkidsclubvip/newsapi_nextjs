@@ -1,9 +1,76 @@
 @use "@/styles/scss/abstracts/" as *;
 
+
+
 .articlesList {
   width: 100%;
   height: auto;
-  padding: 0 5rem;
-  margin-bottom: 10rem;
+  // padding: 0 5rem;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  // background-color:grey;
+  display: grid;
+  justify-items: center;
+  align-items: flex-start;
  
+}
+
+%pageLink,
+.pageLink {
+  display: block !important;
+  // background-color: red;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1px;
+}
+
+.prev,
+.next {
+  @extend %pageLink;
+  width: 4.5rem;
+  height: 3rem;
+  font-weight: 600;
+
+  &:active,
+  &:focus {
+    background-color: none;
+    color: $fontColorLight;
+  }
+}
+
+.reactPaginate {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+  list-style: none;
+  justify-content: center;
+  margin-top: 8vh;
+
+  a,
+  button {
+    //
+    border-radius: 1px;
+    z-index: 0;
+
+    &:focus {
+      border: none;
+      background-color: $blueColor;
+    }
+
+    &:hover {
+      border: 1px solid white;
+      background-color: $blueColor;
+      color: $fontColorLight;
+    }
+  }
+}
+
+.active {
+  background-color: $blueColor;
+  color: $fontColorLight;
+  border: 1px solid white;
 }
