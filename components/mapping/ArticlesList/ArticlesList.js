@@ -1,18 +1,14 @@
-import { Fragment, useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import styles from "./ArticleList.module.scss";
 import ArticleItem from "../ArticleItem/ArticleItem";
-import ArticlePagination from "../../Pagination/ArticlePagination";
-import paginate from "../../../src/lib/paginate";
-import { Container } from "react-bootstrap";
 
 function ArticlesList({ articles1, category }) {
   // React-paginate is below:
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 12;
+  const itemsPerPage = 15;
   // Simulate fetching items from another resources.
   // (This could be items from props; or items loaded in a local state
   // from an API endpoint with useEffect and useState)
@@ -31,28 +27,6 @@ function ArticlesList({ articles1, category }) {
   return (
     <div className="container-fluid">
       <div className={styles.articlesList}>
-       {pageCount > 1 && (
-          <ReactPaginate
-            nextLabel="next >"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={2}
-            pageCount={pageCount}
-            previousLabel="< prev"
-            pageClassName="page-item"
-            pageLinkClassName={styles.pageLink}
-            previousClassName="page-item"
-            previousLinkClassName={styles.prev}
-            nextClassName="page-item"
-            nextLinkClassName={styles.next}
-            breakLabel="..."
-            breakClassName="page-item"
-            breakLinkClassName={styles.pageLink}
-            containerClassName="pagination"
-            activeClassName={styles.active}
-            renderOnZeroPageCount={null}
-            className={styles.reactPaginate}
-          />)}
         <div className="row row-cols-xl-3 row-cols-lg-2 row-cols-md-1  w-100 gx-3 ">
           {currentItems.map((article, index) => (
             <div className="col-sm-12 col-sm-6 " key={index}>
@@ -68,29 +42,30 @@ function ArticlesList({ articles1, category }) {
             </div>
           ))}
         </div>
-        {pageCount > 1 && (
-          <ReactPaginate
-            nextLabel="next >"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={2}
-            pageCount={pageCount}
-            previousLabel="< prev"
-            pageClassName="page-item"
-            pageLinkClassName={styles.pageLink}
-            previousClassName="page-item"
-            previousLinkClassName={styles.prev}
-            nextClassName="page-item"
-            nextLinkClassName={styles.next}
-            breakLabel="..."
-            breakClassName="page-item"
-            breakLinkClassName={styles.pageLink}
-            containerClassName="pagination"
-            activeClassName={styles.active}
-            renderOnZeroPageCount={null}
-            className={styles.reactPaginate}
-          />
-        )}
+        <div className="coinPagination">
+          {pageCount > 1 && (
+            <ReactPaginate
+              nextLabel="next >"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={2}
+              pageCount={pageCount}
+              previousLabel="< previous"
+              pageClassName="page-item"
+              pageLinkClassName="page-link"
+              previousClassName="page-item"
+              previousLinkClassName="page-link"
+              nextClassName="page-item"
+              nextLinkClassName="page-link"
+              breakLabel="..."
+              breakClassName="page-item"
+              breakLinkClassName="page-link"
+              containerClassName="pagination"
+              activeClassName="active"
+              renderOnZeroPageCount={null}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

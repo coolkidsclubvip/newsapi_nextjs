@@ -8,10 +8,11 @@ import HeroSection from "../../components/HeroSection/HeroSection";
 
 import fetchBodyArticles from "../../components/fetch/fetchBodyArticles";
 import fetchHeroArticles from "../../components/fetch/fetchHeroArticles";
+import fetchCoinList from "../../components/fetch/fetchCoinList";
 
 const inter = Inter({ subsets: ["latin"] }); ////////TO BE FIXED////
 
-export default function Home({ bodyArticles, heroArticles }) {
+export default function Home({ bodyArticles, heroArticles,coinData }) {
   const category = "";
 
 
@@ -21,7 +22,7 @@ export default function Home({ bodyArticles, heroArticles }) {
     <Fragment>
       <CustomHead title={"Home"} />
 
-      <HeroSection articles2={heroArticles} />
+      <HeroSection articles2={heroArticles} coinData={coinData} />
 
       {bodyArticles.length > 0 && (
         <ArticlesList articles1={bodyArticles} category={category} />
@@ -35,12 +36,14 @@ export default function Home({ bodyArticles, heroArticles }) {
 export const getStaticProps = async () => {
   const articles1 = await fetchHeroArticles();
   const articles2 = await fetchBodyArticles();
+  const coinData = await fetchCoinList();
 
   return {
     props: {
       heroArticles: articles1,
       bodyArticles: articles2,
+      coinData:coinData,
     },
-    revalidate: 60,
+    revalidate: 60*60,
   };
 };

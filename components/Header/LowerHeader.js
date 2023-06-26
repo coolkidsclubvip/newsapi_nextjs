@@ -27,14 +27,14 @@ function LowerHeader() {
 
   return (
     <div className={styles.header}>
-      <nav className="navbar bg-dark text-light navbar-expand-lg data-bs-theme='dark'">
+      <nav className="navbar navbar-dark bg-dark navbar-expand-lg ">
         <div className="navbar-brand" href="#">
           <Link href="/">
             <span className={styles.navBrand}>NUTS NEWS</span>
           </Link>
         </div>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler "
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -42,7 +42,7 @@ function LowerHeader() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon "></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div className="navbar-nav me-auto mb-2 mb-lg-0 gx-3">
