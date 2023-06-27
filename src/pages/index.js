@@ -33,8 +33,6 @@ export const getStaticProps = async () => {
   const articles1 = await fetchHeroArticles();
   const articles2 = await fetchBodyArticles();
 
-  console.log("@############@@@@@@ coinData is:", coinData.length);
-
   return {
     props: {
       coinData: coinData,

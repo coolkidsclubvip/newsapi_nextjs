@@ -5,9 +5,7 @@ import Card from "react-bootstrap/Card";
 import Loader from "../Loader/index";
 import CoinList from "../../components/coinList";
 
-function HeroSection({ coinData,articles2 }) {
-  console.log("@#### coinData in Herosection is:", coinData.length);
-
+function HeroSection({ coinData, articles2 }) {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     if (articles2 && coinData) {

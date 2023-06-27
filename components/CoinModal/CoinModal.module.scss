@@ -4,8 +4,9 @@
   position: fixed !important;
   background-color: $primaryColor;
   color: $fontColorLight;
-  width: 50vw;
-  height: 60vh;
+
+  width: 70vw;
+  height: 70vh;
   z-index: 999;
   top: 50%;
   left: 50%;
@@ -26,6 +27,7 @@
   }
 
   .container {
+    margin-bottom: 4rem;
     text-align: center;
     span{
       color:$blueColor

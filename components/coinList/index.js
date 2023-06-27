@@ -4,8 +4,6 @@ import ReactPaginate from "react-paginate";
 import CoinModal from "../../components/CoinModal";
 
 function CoinList({ coinData }) {
-  console.log("######@@@@@@ coinData in CoinList is:", coinData.length);
-
   // React-paginate is below:
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
@@ -33,7 +31,8 @@ function CoinList({ coinData }) {
   const [selectedCoin, setSelectedCoin] = useState({});
 
   // handle coin search click
-  const handleCoinSearch = () => {
+  const handleCoinSearch = (e) => {
+    e.preventDefault();
     const filteredCoins = coinData.filter((coin) =>
       coin.name.toLowerCase().includes(searchKeyword.toLowerCase())
     );
@@ -52,7 +51,7 @@ function CoinList({ coinData }) {
       {/* input bar */}
       <input
         type="search"
-        placeholder="coin name"
+        placeholder="Crypto Name..."
         value={searchKeyword}
         onChange={(e) => setSearchKeyword(e.target.value)}
         className={styles.input}
