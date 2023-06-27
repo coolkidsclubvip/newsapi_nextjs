@@ -1,11 +1,10 @@
 import styles from "./coins.module.scss";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
-import CoinModal from "../../../components/CoinModal";
+import CoinModal from "../../components/CoinModal";
 
 function CoinList({ coinData }) {
-
-    console.log("######@@@@@@ coinData in CoinList is:", coinData.length);
+  console.log("######@@@@@@ coinData in CoinList is:", coinData.length);
 
   // React-paginate is below:
   // Here we use item offsets; we could also use page offsets
@@ -33,19 +32,17 @@ function CoinList({ coinData }) {
   const [showModal, setShowModal] = useState(false);
   const [selectedCoin, setSelectedCoin] = useState({});
 
-// handle coin search click
-const handleCoinSearch = () => {
-  const filteredCoins = coinData.filter((coin) =>
-    coin.name.toLowerCase().includes(searchKeyword.toLowerCase())
-  );
+  // handle coin search click
+  const handleCoinSearch = () => {
+    const filteredCoins = coinData.filter((coin) =>
+      coin.name.toLowerCase().includes(searchKeyword.toLowerCase())
+    );
 
-  if (filteredCoins.length > 0) {
-    setSelectedCoin(filteredCoins[0]);
-    setShowModal(true);
-  }
-};
-
-
+    if (filteredCoins.length > 0) {
+      setSelectedCoin(filteredCoins[0]);
+      setShowModal(true);
+    }
+  };
 
   return (
     <div className={styles.coinContainer}>
@@ -60,7 +57,11 @@ const handleCoinSearch = () => {
         onChange={(e) => setSearchKeyword(e.target.value)}
         className={styles.input}
       ></input>
-      <button className={styles.customButton } name="coin" onClick={handleCoinSearch}>
+      <button
+        className={styles.customButton}
+        name="coin"
+        onClick={handleCoinSearch}
+      >
         Search
       </button>
       <hr />

@@ -3,23 +3,23 @@ import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
 import Card from "react-bootstrap/Card";
 import Loader from "../Loader/index";
-import CoinList from "../../src/pages/coinList/index";
+import CoinList from "../../components/coinList";
 
 function HeroSection({ coinData,articles2 }) {
   console.log("@#### coinData in Herosection is:", coinData.length);
 
-  // const [isLoading, setIsLoading] = useState(true);
-  // useEffect(() => {
-  //   if (articles2 && coinData) {
-  //     setIsLoading(false);
-  //   }
-  // }, [isLoading]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (articles2 && coinData) {
+      setIsLoading(false);
+    }
+  }, [isLoading]);
 
   return (
     <Fragment>
-      {/* {isLoading === true ? (
+      {isLoading === true ? (
         <Loader />
-      ) : ( */}
+      ) : (
         <div className={styles.heroSection}>
           <div className="row">
             <div className="col-md-12 col-lg-2 col-xl-2">
@@ -86,7 +86,7 @@ function HeroSection({ coinData,articles2 }) {
             </div>
           </div>
         </div>
-      {/* )} */}
+      )}
     </Fragment>
   );
 }
