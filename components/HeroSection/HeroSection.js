@@ -5,26 +5,25 @@ import Card from "react-bootstrap/Card";
 import Loader from "../Loader/index";
 import CoinList from "../../src/pages/coinList/index";
 
-function HeroSection({ articles2,coinData }) {
+function HeroSection({ coinData,articles2 }) {
   console.log("@#### coinData in Herosection is:", coinData.length);
 
-
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    if (articles2&&coinData) {
-      setIsLoading(false);
-    }
-  }, [isLoading]);
+  // const [isLoading, setIsLoading] = useState(true);
+  // useEffect(() => {
+  //   if (articles2 && coinData) {
+  //     setIsLoading(false);
+  //   }
+  // }, [isLoading]);
 
   return (
     <Fragment>
-      {isLoading === true ? (
+      {/* {isLoading === true ? (
         <Loader />
-      ) : (
+      ) : ( */}
         <div className={styles.heroSection}>
           <div className="row">
             <div className="col-md-12 col-lg-2 col-xl-2">
-             <CoinList coinData={coinData}/>
+              <CoinList coinData={coinData} />
             </div>
             <div className="col-md-12 col-lg-8 col-xl-8">
               <div
@@ -87,7 +86,7 @@ function HeroSection({ articles2,coinData }) {
             </div>
           </div>
         </div>
-      )}
+      {/* )} */}
     </Fragment>
   );
 }

@@ -12,17 +12,14 @@ import fetchCoinList from "../../components/fetch/fetchCoinList";
 
 const inter = Inter({ subsets: ["latin"] }); ////////TO BE FIXED////
 
-export default function Home({ bodyArticles, heroArticles,coinData }) {
+export default function Home({ coinData, heroArticles, bodyArticles }) {
   const category = "";
-
-
-
 
   return (
     <Fragment>
       <CustomHead title={"Home"} />
 
-      <HeroSection articles2={heroArticles} coinData={coinData} />
+      <HeroSection coinData={coinData} articles2={heroArticles} />
 
       {bodyArticles.length > 0 && (
         <ArticlesList articles1={bodyArticles} category={category} />
@@ -31,12 +28,10 @@ export default function Home({ bodyArticles, heroArticles,coinData }) {
   );
 }
 
-
-
 export const getStaticProps = async () => {
+  const coinData = await fetchCoinList();
   const articles1 = await fetchHeroArticles();
   const articles2 = await fetchBodyArticles();
-  const coinData = await fetchCoinList();
 
   console.log("@############@@@@@@ coinData is:", coinData.length);
 
