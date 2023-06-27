@@ -1,16 +1,19 @@
 @use "@/styles/scss/abstracts/" as *;
 
 .coinContainer {
-  // background-color: red;
+  background-color: $secondaryColor;
   position: relative;
   padding: 1rem;
   line-height: 1rem;
 
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   white-space: nowrap;
   z-index: 99;
+  padding-left: 1rem;
+  padding-right: 0;
+
   .customButton {
     color: rgb(0, 0, 0);
     background-color: $blueColor;

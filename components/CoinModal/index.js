@@ -1,5 +1,6 @@
 import styles from "./CoinModal.module.scss";
 import Card from "react-bootstrap/Card";
+import Link from "next/link";
 
 function CoinModal({ coin, showModal, closeModal }) {
   return (
@@ -18,7 +19,7 @@ function CoinModal({ coin, showModal, closeModal }) {
         <div className={styles.container}>
           <div className="container">
             <div className="row">
-              <div className="col ">
+              <div className="col align-items-end">
                 <ul>
                   <span>Rank: </span>
                   {coin.rank}
@@ -61,17 +62,21 @@ function CoinModal({ coin, showModal, closeModal }) {
             </div>
           </div>
         </div>
-        <div className={styles.socialLink}>
-          <span>
+        <div className="row no-gutters text-center">
+          <div className="col col-6">
+            {/* <div className={styles.socialLink}> */}
+
             <a href={coin.websiteUrl} target="_blank">
               Offical Site
             </a>
-          </span>{" "}
-          <span>
+          </div>
+          <div className="col col-6">
             <a href={coin.twitterUrl} target="_blank">
               Twitter
             </a>
-          </span>
+
+            {/* </div> */}
+          </div>
         </div>
         <button onClick={closeModal}>X</button>
       </Card>

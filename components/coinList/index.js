@@ -8,7 +8,7 @@ function CoinList({ coinData }) {
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 12;
+  const itemsPerPage = 16;
   // Simulate fetching items from another resources.
   // (This could be items from props; or items loaded in a local state
   // from an API endpoint with useEffect and useState)
@@ -96,7 +96,7 @@ function CoinList({ coinData }) {
         <ReactPaginate
           nextLabel=">"
           onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
+          pageRangeDisplayed={2}
           marginPagesDisplayed={2}
           pageCount={pageCount}
           previousLabel="<"

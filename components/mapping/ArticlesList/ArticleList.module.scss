@@ -6,13 +6,38 @@
   width: 100%;
   height: auto;
   // padding: 0 5rem;
-  margin-top: 10rem;
+  // margin-top: 5rem;
   margin-bottom: 5rem;
   // background-color:grey;
   display: grid;
   justify-items: center;
-  align-items: flex-start;
- 
+  // align-items: flex-start;
+   padding-left: 0;
+  padding-right: 0;
+  padding-top: 5rem;
+  overflow: hidden;
+.pageBanner{
+  // background-color: red;
+  position: relative;
+  width: 100vw;
+  height: 30vh;
+   background-size: cover;
+  background-position:center top 30%;
+  p{
+
+    font-size: $titleFontSize;
+    font-weight:$captionFontWeight;
+    color:$fontColorGrey;
+text-align: center;
+line-height: 30vh;
+text-shadow: 2px 2px 5px #000000;
+    
+  }
+}
+
+
+
+
 }
 
 %pageLink,

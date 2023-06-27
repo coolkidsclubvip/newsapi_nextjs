@@ -14,7 +14,7 @@ function AuNews({ auArticles }) {
   }, [isLoading]);
 
 
-  const category = "aunews/";
+  const category = "AUnews";
   return (
     <Fragment>
       <CustomHead title={"Australian News"} />
@@ -30,7 +30,7 @@ function AuNews({ auArticles }) {
 
 export const getStaticProps = async () => {
  const articles = await fetchAuArticles(); 
-  articles.category = "aunews";
+  articles.category = "AUnews";
   // Returned data as props
   return {
     props: {

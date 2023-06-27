@@ -25,9 +25,10 @@ function ArticlesList({ articles1, category }) {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid p-0">
       <div className={styles.articlesList}>
-        <div className="row row-cols-xl-3 row-cols-lg-2 row-cols-md-1  w-100 gx-3 ">
+        <div className={styles.pageBanner} style={{backgroundImage:`url(${currentItems[0].urlToImage} )`}}><p>{`${category.length===0? "International Headlines": category}`}</p></div>
+        <div className="row no-gutters row-cols-xl-3 row-cols-lg-2 row-cols-md-1  w-100 gx-3 ">
           {currentItems.map((article, index) => (
             <div className="col-sm-12 col-sm-6 " key={index}>
               <ArticleItem

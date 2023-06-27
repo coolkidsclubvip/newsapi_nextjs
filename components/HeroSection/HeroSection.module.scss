@@ -1,26 +1,38 @@
 @use "@/styles/scss/abstracts/" as *;
 
-.heroSection {
-  position: flex;
-  margin: 0 auto;
-  width: 100vw;
-  // height: 80vh;
-  overflow: hidden;
-  // margin-bottom: 15vh;
 
-  align-items: center;
-  // background-color: red;
-}
-.hero_caption {
-  height:auto;
-// background-color: red;
-padding-top: 0;
-  text-align: center;
-margin-top: 0;
-  font-weight: $captionFontWeight;
-  font-size: 2rem;
-  opacity: 0.9;
-  z-index: 99;
-  color: rgb(0, 0, 0);
-  bottom: 20vh;
+
+.heroSection {
+  position:flex;
+  // margin: 0 auto;
+  width: 100vw;
+  height: 85vh;
+  overflow: hidden;
+  margin-bottom: 10vh;
+  // align-items: center;
+  // @media screen {max-width: 1200px;
+  //     margin-bottom: 100vh;
+  // }
+
+  .hero_caption {
+    height: 20vh;
+    overflow: hidden;
+    // background-color: red;
+    padding-top: 0;
+    text-align: center;
+    margin-top: 0;
+    font-weight: $captionFontWeight;
+    font-size: 2rem;
+    opacity: 0.9;
+    z-index: 99;
+    // color: rgb(0, 0, 0);
+    bottom: 20vh;
+  }
+
+  .banner {
+    padding-left: 0;
+    padding-right: 0;
+
+    overflow: hidden;
+  }
 }
