@@ -8,7 +8,7 @@ import CoinList from "../../src/pages/coins/index";
 function HeroSection({ articles2,coinData }) {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    if (articles2) {
+    if (articles2&&coinData) {
       setIsLoading(false);
     }
   }, [isLoading]);
@@ -20,10 +20,10 @@ function HeroSection({ articles2,coinData }) {
       ) : (
         <div className={styles.heroSection}>
           <div className="row">
-            <div className="col-md-2 col-lg-2 col-xl-2">
+            <div className="col-md-12 col-lg-2 col-xl-2">
              <CoinList coinData={coinData}/>
             </div>
-            <div className="col-md-8 col-lg-8 col-xl-8">
+            <div className="col-md-12 col-lg-8 col-xl-8">
               <div
                 id="carouselExampleCaptions"
                 className="carousel slide"
@@ -79,7 +79,7 @@ function HeroSection({ articles2,coinData }) {
                 </button>
               </div>
             </div>
-            <div className="col-md-2 col-lg-2 col-xl-2">
+            <div className="col-md-12 col-lg-2 col-xl-2">
               ffffffffffffffffffffffff
             </div>
           </div>

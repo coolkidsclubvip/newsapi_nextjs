@@ -10,10 +10,31 @@
   height: 100vh;
   overflow: hidden;
   white-space: nowrap;
-.btn{width: 3rem;
-     background-color: $blueColor;
+  z-index: 99;
+  .customButton {
+    color: rgb(0, 0, 0);
+    background-color: $blueColor;
+    //button style:
+    width: 5rem;
+    margin-left: 0.5rem;
+    height: 1.7rem;
+    font-family: inherit;
+    // padding: 0 1rem;
+    font-weight: 900;
+    font-size: 1rem;
+    border: 3px solid black;
+    border-radius: 0.4rem;
+    box-shadow: 0.3rem 0.3rem;
+    &:hover {
+      transform: translate(-0.05rem, -0.05rem);
+      box-shadow: 0.15rem 0.15rem;
+    }
 
-}
+    &:active {
+      transform: translate(0.05rem, 0.05rem);
+      box-shadow: 0.05rem 0.05rem;
+    }
+  }
 
   img {
     width: 1.3rem;
@@ -21,6 +42,9 @@
   p {
     display: inline-block;
     line-height: 1rem;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .coinPagination {
@@ -34,11 +58,11 @@
 
 // custom input styles
 .input {
-  width: 100%;
+  width: 60%;
   max-width: 200px;
   height: 30px;
   padding: 12px;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   border: 1.5px solid lightgrey;
   outline: none;
   transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);

@@ -26,19 +26,22 @@
   }
 
   .container {
-     text-align: center;
+    text-align: center;
+    span{
+      color:$blueColor
+    }
   }
 
-  .socialLink{
-     text-align: center;
-     padding: 3rem;
-     
-     span{
-margin: 3rem;
-color: $fontColorGrey;
-&:hover{
-     color: $blueColor !important;
-}
-     }
+  .socialLink {
+    text-align: center;
+    padding: 3rem;
+
+    span {
+      margin: 3rem;
+      color: $fontColorGrey;
+      &:hover {
+        color: $blueColor !important;
+      }
+    }
   }
 }

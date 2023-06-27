@@ -20,18 +20,18 @@ function CoinModal({ coin, showModal, closeModal }) {
           <div className="container">
             <div className="row">
               <div className="col ">
-                <ul>World Rank: {coin.rank}</ul>
-                <ul>symbol: {coin.symbol}</ul>
-                <ul>Price: Au${coin.price}</ul>
-                <ul>Volume: {coin.volume}</ul>
+                <ul><span>World Rank: </span>{coin.rank}</ul>
+                <ul><span>symbol: </span>{coin.symbol}</ul>
+                <ul><span>Price: </span>A${coin.price}</ul>
+                <ul><span>Volume:</span> {coin.volume}</ul>
               </div>
               <div className="col">
-                <ul>MarketCap: {coin.marketCap}</ul>
-                <ul>Available Supply: {coin.availableSupply}</ul>
-                <ul>Total Supply: {coin.totalSupply}</ul>
-                <ul>Price Change in Past 1 Hour: {coin.priceChange1h}</ul>
-                <ul>Price Change in Past 1 Day: {coin.priceChange1d}</ul>
-                <ul>Price Change in Past 1 Week: {coin.priceChange1w}</ul>
+                <ul><span>MarketCap:</span> {coin.marketCap}</ul>
+                <ul><span>Available Supply: </span>{coin.availableSupply}</ul>
+                <ul><span>Total Supply: </span>{coin.totalSupply}</ul>
+                <ul><span>Price Change in Past 1 Hour:</span> {coin.priceChange1h}</ul>
+                <ul><span>Price Change in Past 1 Day: </span>{coin.priceChange1d}</ul>
+                <ul><span>Price Change in Past 1 Week: </span>{coin.priceChange1w}</ul>
               </div>
             </div>
           </div>

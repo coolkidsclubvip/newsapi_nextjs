@@ -57,7 +57,7 @@ const handleCoinSearch = () => {
         onChange={(e) => setSearchKeyword(e.target.value)}
         className={styles.input}
       ></input>
-      <button className={styles.btn} name="coin" onClick={handleCoinSearch}>
+      <button className={styles.customButton } name="coin" onClick={handleCoinSearch}>
         Search
       </button>
       <hr />
