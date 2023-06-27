@@ -38,12 +38,14 @@ export const getStaticProps = async () => {
   const articles2 = await fetchBodyArticles();
   const coinData = await fetchCoinList();
 
+  console.log("@############@@@@@@ coinData is:", coinData.length);
+
   return {
     props: {
+      coinData: coinData,
       heroArticles: articles1,
       bodyArticles: articles2,
-      coinData:coinData,
     },
-    revalidate: 60*60,
+    revalidate: 60 * 60,
   };
 };

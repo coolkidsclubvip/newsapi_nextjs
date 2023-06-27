@@ -4,6 +4,9 @@ import ReactPaginate from "react-paginate";
 import CoinModal from "../../../components/CoinModal";
 
 function CoinList({ coinData }) {
+
+    console.log("######@@@@@@ coinData in CoinList is:", coinData.length);
+
   // React-paginate is below:
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.

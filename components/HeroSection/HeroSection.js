@@ -3,9 +3,12 @@ import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
 import Card from "react-bootstrap/Card";
 import Loader from "../Loader/index";
-import CoinList from "../../src/pages/coins/index";
+import CoinList from "../../src/pages/coinList/index";
 
 function HeroSection({ articles2,coinData }) {
+  console.log("@#### coinData in Herosection is:", coinData.length);
+
+
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     if (articles2&&coinData) {
