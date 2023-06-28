@@ -54,7 +54,7 @@ function LowerHeader() {
               <span>Australia</span>
             </Link>
 
-            <Link href="/USAnews" className={styles.navlink}>
+            <Link href="/USnews" className={styles.navlink}>
               <span>America</span>
             </Link>
           </div>
@@ -63,7 +63,7 @@ function LowerHeader() {
               <input
                 className="form-control me-2"
                 type="search"
-                placeholder="Search keywords..."
+                placeholder="News keywords..."
                 aria-label="Search"
                 onChange={handleChange}
               />

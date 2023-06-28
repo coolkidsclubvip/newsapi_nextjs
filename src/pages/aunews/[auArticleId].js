@@ -13,8 +13,6 @@ const AuArticleId = (props) => {
 
   const { userArticle } = props;
 
-  console.log("@@$$$ userArticle: ", userArticle);
-
   const category = "AUnews";
   return (
     <Fragment>
