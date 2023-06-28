@@ -15,7 +15,7 @@ const AuArticleId = (props) => {
 
   console.log("@@$$$ userArticle: ", userArticle);
 
-  const category = "aunews";
+  const category = "AUnews";
   return (
     <Fragment>
       <CustomHead title={userArticle.title} />
