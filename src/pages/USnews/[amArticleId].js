@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import CustomHead from "../../../components/layout/CustomHead";
 import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
 import fetchAmArticles from "../../../components/fetch/fetchAmArticles";
-import Loader from "../../../components/Loader/index";
+import Loader from "../../../components/Loader";
 import { useRouter } from "next/router";
 
 const AmArticleId = (props) => {

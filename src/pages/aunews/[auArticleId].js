@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import CustomHead from "../../../components/layout/CustomHead";
 import ArticleDetail from "../../../components/ArticleDetail/ArticleDetail";
 import fetchAuArticles from "../../../components/fetch/fetchAuArticles";
-import Loader from "../../../components/Loader/index";
+import Loader from "../../../components/Loader";
 import { useRouter } from "next/router";
 
 const AuArticleId = (props) => {
@@ -51,7 +51,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const articles = await fetchAuArticles();
   //  Store params id value (article USER wants!)
-  const articleQuery = context.params.auArticleId; // This auArticleId is passed in through click
+  const articleQuery = await context.params.auArticleId; // This auArticleId is passed in through click
   //  Filters articles array to match & return article passed in params
   const articleMatch = articles.filter(
     (article) => article.title.toString() === articleQuery
