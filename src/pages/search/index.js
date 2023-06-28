@@ -22,7 +22,7 @@ console.log("router.query is", router.query);
             </p>
           </div>
         ) : (
-          <ArticlesList articles1={results} category={"search/"} />
+          <ArticlesList articles1={results} category={"search"} />
         )}
       </div>
     </Fragment>

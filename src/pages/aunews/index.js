@@ -6,13 +6,13 @@ import fetchAuArticles from "../../../components/fetch/fetchAuArticles"
 import Loader from "../../../components/Loader/index";
 
 function AuNews({ auArticles }) {
+  // Loader effect when loading
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     if (auArticles) {
       setIsLoading(false);
     }
   }, [isLoading]);
-
 
   const category = "AUnews";
   return (
@@ -30,7 +30,7 @@ function AuNews({ auArticles }) {
 
 export const getStaticProps = async () => {
  const articles = await fetchAuArticles(); 
-  articles.category = "AUnews";
+
   // Returned data as props
   return {
     props: {

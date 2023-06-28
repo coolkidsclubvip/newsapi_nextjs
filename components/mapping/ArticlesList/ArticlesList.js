@@ -58,7 +58,7 @@ function ArticlesList({ articles1, category }) {
               pageRangeDisplayed={3}
               marginPagesDisplayed={2}
               pageCount={pageCount}
-              previousLabel="< previous"
+              previousLabel="< prev"
               pageClassName="page-item"
               pageLinkClassName="page-link"
               previousClassName="page-item"
