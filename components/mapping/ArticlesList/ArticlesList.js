@@ -32,7 +32,13 @@ function ArticlesList({ articles1, category }) {
           style={{ backgroundImage: `url(${currentItems[0].urlToImage} )` }}
         >
           <p>{`${
-            category.length === 0 ? "International Headlines" : category
+            category.length === 0
+              ? "International Headlines"
+              : category === "aunews"
+              ? "Australian News"
+              : category === "USnews"
+              ? "American News"
+              : "Search Results"
           }`}</p>
         </div>
         <div className="row no-gutters row-cols-xl-3 row-cols-lg-2 row-cols-md-1  w-100 gx-3 ">
