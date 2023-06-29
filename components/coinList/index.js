@@ -40,15 +40,16 @@ function CoinList({ coinData }) {
     if (filteredCoins.length > 0) {
       setSelectedCoin(filteredCoins[0]);
       setShowModal(true);
-    }
+    } else if (filteredCoins.length === 0) { alert("Please enter a valid coin name"); } 
   };
 
   return (
     <div className={styles.coinContainer}>
-      <h4>
+      <h5>
         <b>Crypto Price Watch</b>
-      </h4>
+      </h5>
       {/* input bar */}
+      <form onSubmit={handleCoinSearch}>
       <input
         type="search"
         placeholder="Crypto Name..."
@@ -56,13 +57,8 @@ function CoinList({ coinData }) {
         onChange={(e) => setSearchKeyword(e.target.value)}
         className={styles.input}
       ></input>
-      <button
-        className={styles.customButton}
-        name="coin"
-        onClick={handleCoinSearch}
-      >
-        Search
-      </button>
+      </form>
+     
       <hr />
       {currentItems &&
         currentItems.map((coin) => {
