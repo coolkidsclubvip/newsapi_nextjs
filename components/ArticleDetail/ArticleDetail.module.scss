@@ -2,7 +2,9 @@
 
 .articleDetail{
      margin-top: 3rem;
-
+a{color:$fontColorGrey; text-shadow: -1px -1px 0 #121212, 1px 1px 0 #121212, -1px 1px 0 #121212,
+    1px -1px 0 #121212;
+  &:hover{color:$blueColor}}
 
 .goBack{
   color: black;

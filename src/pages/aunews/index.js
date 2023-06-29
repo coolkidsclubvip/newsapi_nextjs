@@ -14,7 +14,7 @@ function AuNews({ auArticles }) {
     }
   }, [isLoading]);
 
-  const category = "AUnews";
+  const category = "aunews";
   return (
     <Fragment>
       <CustomHead title={"Australian News"} />
