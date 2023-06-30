@@ -1,4 +1,4 @@
-import styles from "./coins.module.scss";
+import styles from "./coinList.module.scss";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import CoinModal from "../../components/CoinModal";
@@ -45,9 +45,9 @@ function CoinList({ coinData }) {
 
   return (
     <div className={styles.coinContainer}>
-      <h5>
-        <b>Crypto Price Watch</b>
-      </h5>
+      <h2>
+        Crypto Price Watch
+      </h2>
       {/* input bar */}
       <form onSubmit={handleCoinSearch}>
       <input
@@ -59,12 +59,12 @@ function CoinList({ coinData }) {
       ></input>
       </form>
      
-      <hr />
+    
       {currentItems &&
         currentItems.map((coin) => {
           return (
             <>
-              <p
+              <ul className={styles.coinList}
                 key={coin.name}
                 //give each coin a click event
                 onClick={() => {
@@ -75,7 +75,7 @@ function CoinList({ coinData }) {
                 <img src={coin.icon} />
                 <b> {coin.name} </b>
                 A${coin.price}
-              </p>
+              </ul>
               <br />
             </>
           );

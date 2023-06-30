@@ -12,7 +12,7 @@ const AmArticleId = (props) => {
   }
 
   const { userArticle } = props;
-  const category = "USnews";
+  const category = "usnews";
   return (
     <Fragment>
       <CustomHead title={userArticle.title} />

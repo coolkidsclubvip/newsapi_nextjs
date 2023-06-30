@@ -36,7 +36,7 @@ function ArticlesList({ articles1, category }) {
               ? "International Headlines"
               : category === "aunews"
               ? "Australian News"
-              : category === "USnews"
+              : category === "usnews"
               ? "American News"
               : "Search Results"
           }`}</p>

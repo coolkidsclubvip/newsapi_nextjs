@@ -39,15 +39,14 @@
     }
   }
 
-  // .socialLink {
-  //  background-color: red;
+
 
   a {
     display: inline-block;
     // justify-content: center;
     margin: 0 auto;
     padding: 3rem;
-    color: $fontColorGrey;
+    color: $fontColorLight;
     &:hover {
       color: $blueColor !important;
     }

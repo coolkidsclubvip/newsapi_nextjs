@@ -7,6 +7,8 @@
   padding-left: 0;
   padding-right: 0;
   width: 100vw;
+  height: 9vh;
+
 }
 
 .navBrand {
@@ -18,12 +20,13 @@
 
 .navlink {
   font-size: $navFontSize;
+  font-weight: $navFontWeight;
   width: 6rem;
   text-decoration: none;
   color: white;
   padding: 0 0.5rem;
   margin-left: 3rem;
-  line-height: 2rem;
+  line-height: 3rem;
   border-radius: 1px;
   background: linear-gradient(#0197e1 0 0) no-repeat;
   background-size: 0%;
