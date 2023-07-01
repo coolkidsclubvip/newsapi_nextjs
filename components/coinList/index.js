@@ -64,7 +64,8 @@ function CoinList({ coinData }) {
         currentItems.map((coin) => {
           return (
             <>
-              <ul className={styles.coinList}
+              <ul
+                className={styles.coinList}
                 key={coin.name}
                 //give each coin a click event
                 onClick={() => {
@@ -74,7 +75,7 @@ function CoinList({ coinData }) {
               >
                 <img src={coin.icon} />
                 <b> {coin.name} </b>
-                A${coin.price}
+                <span>A${coin.price}</span>
               </ul>
               <br />
             </>
