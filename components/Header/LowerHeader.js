@@ -51,11 +51,11 @@ function LowerHeader() {
             </Link>
 
             <Link href="/aunews" className={styles.navlink}>
-              <span>Australia</span>
+              <span>Australian</span>
             </Link>
 
-            <Link href="/usnews" className={styles.navlink}>
-              <span>America</span>
+            <Link href="/USnews" className={styles.navlink}>
+              <span>American</span>
             </Link>
           </div>
           <div className={styles.form}>

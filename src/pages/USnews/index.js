@@ -14,7 +14,7 @@ function AmNews({ amArticles }) {
     }
   }, [isLoading]);
 
-  const category = "usnews";
+  const category = "USnews";
   return (
     <Fragment>
       <CustomHead title={"American News"} />
