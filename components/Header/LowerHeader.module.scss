@@ -1,14 +1,19 @@
 @use "@/styles/scss/abstracts/" as *;
 
 .header {
-  overflow: hidden;
+  // overflow: hidden;
   padding: 0;
   margin: 0;
   padding-left: 0;
   padding-right: 0;
   width: 100vw;
   height: 9vh;
+
+.dropMenu{
+  background-color: $primaryColor;
   z-index: 999;
+  padding: 0.5rem;
+}
 
 }
 
@@ -17,6 +22,7 @@
   font-size: 2.5rem;
   margin-left: 3rem;
   line-height: 3rem;
+  
 }
 
 .navlink {
@@ -31,8 +37,8 @@
   border-radius: 1px;
   background: linear-gradient(#0197e1 0 0) no-repeat;
   background-size: 0%;
- 
-  
+  z-index: 999;
+
   &:hover {
     color: rgb(255, 255, 255);
     background-size: 100%;

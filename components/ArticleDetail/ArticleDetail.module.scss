@@ -2,8 +2,8 @@
 
 .articleDetail{
      margin-top: 3rem;
-a{color:$fontColorGrey; text-shadow: -1px -1px 0 #121212, 1px 1px 0 #121212, -1px 1px 0 #121212,
-    1px -1px 0 #121212;
+a{color:$fontColorGrey; 
+  font-weight: $navFontWeight;
   &:hover{color:$blueColor}}
 
 .goBack{

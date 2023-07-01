@@ -24,12 +24,17 @@ function ArticlesList({ articles1, category }) {
     setItemOffset(newOffset);
   };
 
+// Last current page articles' index number is:
+const lastIndex = currentItems.length - 1
+
   return (
     <div className="container-fluid p-0">
       <div className={styles.articlesList}>
         <div
           className={styles.pageBanner}
-          style={{ backgroundImage: `url(${currentItems[0].urlToImage} )` }}
+          style={{
+            backgroundImage: `url(${currentItems[lastIndex].urlToImage} )`,
+          }}
         >
           <p>{`${
             category.length === 0

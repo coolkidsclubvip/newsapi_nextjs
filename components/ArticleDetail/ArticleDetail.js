@@ -5,6 +5,7 @@ import styles from "./ArticleDetail.module.scss";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Loader from "../Loader/index";
+import { FiExternalLink } from "react-icons/fi";
 
 function ArticleDetail({
   id,
@@ -58,7 +59,7 @@ function ArticleDetail({
           <p>
             {content.length < 200 ? content : content.slice(0, 200) + "..."}{" "}
             <a href={url} target="_blank" rel="noopener noreferrer">
-              Read more from source.
+              Read more from source. <FiExternalLink/>
             </a>
           </p>
           {/* conditionally check if query exists and render different back path */}
@@ -72,9 +73,7 @@ function ArticleDetail({
                 <button className={styles.goBack}>Go Back</button>
               </Link>
             )}
-            {/* <button className={styles.goBack} onClick={() => router.back()}>
-              Go Back
-            </button> */}
+           
           </span>
         </div>
       </div>

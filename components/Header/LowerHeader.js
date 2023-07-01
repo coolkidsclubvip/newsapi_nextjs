@@ -34,7 +34,7 @@ function LowerHeader() {
           </Link>
         </div>
         <button
-          className="navbar-toggler "
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -44,7 +44,7 @@ function LowerHeader() {
         >
           <span className="navbar-toggler-icon "></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className={`collapse navbar-collapse ${styles.dropMenu}`} id="navbarSupportedContent">
           <div className="navbar-nav me-auto mb-2 mb-lg-0 gx-3">
             <Link href="/" className={styles.navlink}>
               <span>Home</span>
