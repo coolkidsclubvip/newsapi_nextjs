@@ -9,12 +9,11 @@
   width: 100vw;
   height: 9vh;
 
-.dropMenu{
-  background-color: $primaryColor;
-  z-index: 999;
-  padding: 0.5rem;
-}
-
+  .dropMenu {
+    background-color: $primaryColor;
+    z-index: 999;
+    padding: 0.5rem;
+  }
 }
 
 .navBrand {
@@ -22,16 +21,15 @@
   font-size: 2.5rem;
   margin-left: 3rem;
   line-height: 3rem;
-  
 }
 
 .navlink {
   font-size: $navFontSize;
   font-weight: $navFontWeight;
-  width: 6rem;
+  width: auto;
   text-decoration: none;
   color: white;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   margin-left: 3rem;
   line-height: 3rem;
   border-radius: 1px;
