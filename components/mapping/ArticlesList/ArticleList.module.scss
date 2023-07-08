@@ -16,6 +16,12 @@
      margin-top: 0;
   // padding-top: 5rem;
   overflow: hidden;
+
+     @media (max-width:768px){
+ margin-top: 50vh;
+
+    }
+  
   .pageBanner {
     // background-color: red;
     position: relative;
@@ -30,9 +36,11 @@
       text-align: center;
       line-height: 30vh;
       text-shadow: 2px 2px 5px #000000;
-    @media (max-width:768px){
-  font-size: 1.8rem;
+    @media (max-width:991px){
+  font-size: 3rem;
+
     }
+  
     }
   }
 }

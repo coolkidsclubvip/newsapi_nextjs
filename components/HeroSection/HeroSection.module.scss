@@ -8,8 +8,24 @@
   // overflow: hidden;
   margin-bottom: 10vh;
   // align-items: center;
+//desktop
+@media (min-width: 1200px) {
+ margin-bottom: 20vh;
+ overflow: hidden;
+}
 
-  @media (max-width: 1200px) {
+
+  // laptop
+@media (max-width: 1199px) and (min-width: 992px) {
+     width: 100%;
+    flex-direction: column;
+    padding: 20vh;
+    height: auto;
+}
+
+
+  //Ipad & phone
+  @media(max-width: 991px)  {
     width: 100%;
     flex-direction: column;
     height: auto;

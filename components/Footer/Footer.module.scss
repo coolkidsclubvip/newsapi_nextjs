@@ -1,5 +1,12 @@
 @use "@/styles/scss/abstracts/" as *;
 
+.container {
+  width: 100vw;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: red;
+}
+
 .footer1 {
   display: flex;
   background-color: $primaryColor;
@@ -12,6 +19,14 @@
   font-size: $navFontSize;
   padding-right: 0;
   padding-left: 0;
+  @media (max-width: 767px) {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   
+    padding:1rem 0 ;
+  }
 }
 
 .navlink {
@@ -26,25 +41,13 @@
   background: linear-gradient(#0197e1 0 0) no-repeat;
   background-size: 0%;
   transition: 0.4s;
+
   &:hover {
     color: rgb(255, 255, 255);
     background-size: 100%;
     transition: 0.4s;
   }
 }
-
-// .about {
-
-//   &:hover {
-//     color: $blueColor;
-//   }
-// }
-// .privacy {
-//   margin-left: 5rem;
-//   &:hover {
-//     color: $blueColor;
-//   }
-// }
 
 .footer2 {
   background-color: $secondaryColor;
@@ -53,10 +56,4 @@
   color: white;
   text-align: center;
   line-height: 5vh;
-}
-
-.container {
-  width: 100vw;
-  padding-left: 0;
-  padding-right: 0;
 }
