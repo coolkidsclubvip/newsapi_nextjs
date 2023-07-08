@@ -27,7 +27,7 @@ function ArticleItem({
   return (
     <div className={styles.articleItem}>
       {" "}
-      <div className="card h-100 shadow border-0">
+      <div className="card h-100 border-0 justify-content-center">
         <Link href={`${category}/[articleId]`} as={`${category}/${title}`}>
           <div className={styles.imageContainer}>
             {isLoading === true ? (

@@ -4,12 +4,14 @@
   margin-top: 5rem;
   overflow: hidden;
   position: relative;
+ 
 }
 
 .imageContainer {
   width: 30vw;
   height: 29vh;
   overflow: hidden;
+margin: 0 auto;
    @media (max-width:1199px) {
     width: 100vw;
     height:auto;
