@@ -18,7 +18,7 @@
   overflow: hidden;
 
      @media (max-width:768px){
- margin-top: 50vh;
+ margin-top: 0vh;
 
     }
   
@@ -29,6 +29,7 @@
     height: 30vh;
     background-size: cover;
     background-position: center top 30%;
+  
     p {
       font-size: $titleFontSize;
       font-weight: $captionFontWeight;

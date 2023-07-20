@@ -13,12 +13,12 @@ function Footer() {
         </div>
         <div>
           <Link href={"/privacy"} className={styles.navlink}>
-            <span className={styles.privacy}>Privacy</span>
+            <span>Privacy</span>
           </Link>
         </div>
         <div>
           <Link href={"/contact"} className={styles.navlink}>
-            <span className={styles.privacy}>Contact</span>
+            <span>Contact</span>
           </Link>
         </div>
       </div>

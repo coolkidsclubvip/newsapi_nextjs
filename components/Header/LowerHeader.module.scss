@@ -18,7 +18,7 @@
 
 .navBrand {
   color: $blueColor;
-  font-size: 2.5rem;
+  font-size: 2.7rem;
   margin-left: 3rem;
   line-height: 3rem;
 }
@@ -33,9 +33,9 @@
   margin-left: 3rem;
   line-height: 3rem;
   border-radius: 1px;
-  background: linear-gradient(#0197e1 0 0) no-repeat;
-  background-size: 0%;
-  z-index: 999;
+  background: linear-gradient($blueColor2 0 0) no-repeat;
+  background-size: 10px;
+  z-index: 99;
 
   &:hover {
     color: rgb(255, 255, 255);

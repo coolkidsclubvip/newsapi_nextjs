@@ -9,6 +9,9 @@
   height: 85vh;
   overflow: hidden;
   white-space: nowrap;
+  @media (max-width: 991px) {
+    margin-top: 10vh;
+  }
 
   h2 {
     text-align: center;
@@ -25,9 +28,6 @@
       cursor: pointer;
       b {
         color: $blueColor2;
-      }
-      img {
-        width: 1.4rem;
       }
     }
 
