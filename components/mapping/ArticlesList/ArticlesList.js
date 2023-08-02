@@ -5,12 +5,11 @@ import ArticleItem from "../ArticleItem/ArticleItem";
 
 function ArticlesList({ articles1, category }) {
   // React-paginate is below:
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
+
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 15;
   // Simulate fetching items from another resources.
-  // (This could be items from props; or items loaded in a local state
+
   // from an API endpoint with useEffect and useState)
   const endOffset = itemOffset + itemsPerPage;
 
@@ -24,8 +23,8 @@ function ArticlesList({ articles1, category }) {
     setItemOffset(newOffset);
   };
 
-// Last current page articles' index number is:
-const lastIndex = currentItems.length - 1
+  // Last current page articles' index number is:
+  const lastIndex = currentItems.length - 1;
 
   return (
     <div className="container-fluid p-0">
