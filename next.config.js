@@ -16,6 +16,7 @@ module.exports = (phase) => {
 
   // UNCONFIGURED HOST + REMOTE PATTERNS
   const images = {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
