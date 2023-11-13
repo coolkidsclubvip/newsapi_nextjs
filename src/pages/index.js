@@ -28,17 +28,42 @@ export default function Home({ coinData, heroArticles, bodyArticles }) {
   );
 }
 
-export const getStaticProps = async () => {
-  const coinData = await fetchCoinList();
-  const articles1 = await fetchHeroArticles();
-  const articles2 = await fetchBodyArticles();
+// export const getStaticProps = async () => {
+//   const coinData = await fetchCoinList();
+//   const articles1 = await fetchHeroArticles();
+//   const articles2 = await fetchBodyArticles();
 
-  return {
-    props: {
-      coinData: coinData,
-      heroArticles: articles1,
-      bodyArticles: articles2,
-    },
-    revalidate: 60 * 60,
-  };
+//   return {
+//     props: {
+//       coinData: coinData,
+//       heroArticles: articles1,
+//       bodyArticles: articles2,
+//     },
+//     revalidate: 60 * 60,
+//   };
+// };
+export const getServerSideProps = async () => {
+  try {
+    const coinData = await fetchCoinList();
+    const articles1 = await fetchHeroArticles();
+    const articles2 = await fetchBodyArticles();
+
+    return {
+      props: {
+        coinData: coinData,
+        heroArticles: articles1,
+        bodyArticles: articles2,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    return {
+      notFound: true,
+    };
+  }
 };
+
+
+
+
+

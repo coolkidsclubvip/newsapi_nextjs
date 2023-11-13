@@ -28,16 +28,32 @@ function AuNews({ auArticles }) {
   );
 }
 
-export const getStaticProps = async () => {
- const articles = await fetchAuArticles(); 
+// export const getStaticProps = async () => {
+//  const articles = await fetchAuArticles(); 
 
-  // Returned data as props
-  return {
-    props: {
-      auArticles: articles,
-    },
-    revalidate: 60*60,
-  };
+//   // Returned data as props
+//   return {
+//     props: {
+//       auArticles: articles,
+//     },
+//     revalidate: 60*60,
+//   };
+// };
+export const getServerSideProps = async () => {
+  try {
+    const articles = await fetchAuArticles();
+
+    return {
+      props: {
+        auArticles: articles,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching articles:", error.message);
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default AuNews;

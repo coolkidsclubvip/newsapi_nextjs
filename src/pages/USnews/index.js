@@ -8,6 +8,7 @@ import Loader from "../../../components/Loader/index";
 function AmNews({ amArticles }) {
   // Loader effect when loading
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     if (amArticles) {
       setIsLoading(false);
@@ -28,16 +29,33 @@ function AmNews({ amArticles }) {
   );
 }
 
-export const getStaticProps = async () => {
-  const articles = await fetchAmArticles();
+// export const getStaticProps = async () => {
+//   const articles = await fetchAmArticles();
 
-  // Returned data as props
-  return {
-    props: {
-      amArticles: articles,
-    },
-    revalidate: 60 * 60,
-  };
+//   // Returned data as props
+//   return {
+//     props: {
+//       amArticles: articles,
+//     },
+//     // Renew data every 1 hour
+//     revalidate: 60 * 60,
+//   };
+// };
+export const getServerSideProps = async () => {
+  try {
+    const articles = await fetchAmArticles();
+
+    return {
+      props: {
+        amArticles: articles,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching articles:", error.message);
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default AmNews;
