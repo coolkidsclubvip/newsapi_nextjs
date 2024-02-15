@@ -1,17 +1,18 @@
 async function fetchCoinList() {
-  const res = await fetch(
-    "https://api.coinstats.app/public/v1/coins?currency=aud&limit=75"
-  );
-  const data = await res.json();
+  let coins;
+  const sdk = require("api")("@coinstatsopenapi/v1.0#345g3s337lsj11623");
 
-  if (!res.ok) {
-    throw new Error(
-      `Failed to fetch posts - Error ${res.status}: ${data.message}`
-    );
+  sdk.auth(`${process.env.NEXT_PUBLIC_COIN_API_KEY}`);
+  
+  try {
+    const response = await sdk.coinController_coinList();
+    coins = response.data.result;
+ 
+    return coins;
+  } catch (error) {
+    console.error(error);
+    return null;
   }
-  const coins = data.coins;
-
-  return coins;
 }
 
 export default fetchCoinList;
