@@ -17,8 +17,10 @@ async function fetchHeroArticles() {
       article.urlToImage !==
       "https:////m.files.bbci.co.uk/modules/bbc-morph-sport-seo-meta/1.23.3/images/bbc-sport-logo.png"
   );
+  // Take the first 7 articles
+  const top7Articles = articles1.slice(0, 7);
 
-  return articles1;
+  return top7Articles;
 }
 
 export default fetchHeroArticles;
