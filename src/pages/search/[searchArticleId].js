@@ -27,7 +27,7 @@ const SearchArticleId = (props) => {
 
 async function fetchArticles(query) {
   const response = await fetch(
-    `https://newsapi.org/v2/everything?sources=bbc-news&q=${query}&pageSize=21&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?sources=bbc-news&q=${query}&pageSize=21&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY2}`
   );
   const data = await response.json();
   const articles = data.articles;
