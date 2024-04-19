@@ -5,7 +5,7 @@ import ArticleItem from "../ArticleItem/ArticleItem";
 import { useRouter } from "next/router";
 
 function ArticlesList({ articles1, category }) {
-  // const [isHomePage, setIsHomePage] = useState(false);
+  const [isHomePage, setIsHomePage] = useState(false);
 
   // React-paginate is below:
   const [itemOffset, setItemOffset] = useState(0);
@@ -18,12 +18,12 @@ function ArticlesList({ articles1, category }) {
   const currentItems = articles1.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(articles1.length / itemsPerPage);
 
-  // const router = useRouter();
-  // // 判断当前页面是否是主页
-  // useEffect(() => {
-  //   setIsHomePage(router.pathname === "/");
+  const router = useRouter();
+  // 判断当前页面是否是主页
+  useEffect(() => {
+    setIsHomePage(router.pathname === "/");
     
-  // }, []);
+  }, []);
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
@@ -31,19 +31,19 @@ function ArticlesList({ articles1, category }) {
 
     setItemOffset(newOffset);
 
-    // // 判断是否为首页
-    // if (isHomePage) {
-    //   // 如果是首页，滚动到顶部下方 110vh 的位置
-    //   window.scrollTo({ top: window.innerHeight * 1.1, behavior: "smooth" });
-    // } else {
-    //   // 如果不是首页，滚动到页面顶部
-    //   window.scrollTo({ top: 0, behavior: "smooth" });
-    // }
+    // 判断是否为首页
+    if (isHomePage) {
+      // 如果是首页，滚动到顶部下方 110vh 的位置
+      window.scrollTo({ top: window.innerHeight * 1.1, behavior: "smooth" });
+    } else {
+      // 如果不是首页，滚动到页面顶部
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   // Last current page articles' index number is:
   const lastIndex = currentItems.length - 1;
-// console.log("isHomepage is:", isHomePage);
+console.log("isHomepage is:", isHomePage);
   return (
     <div className="container-fluid p-0">
       <div className={styles.articlesList}>
