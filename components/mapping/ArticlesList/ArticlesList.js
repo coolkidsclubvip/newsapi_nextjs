@@ -22,8 +22,7 @@ function ArticlesList({ articles1, category }) {
   // 判断当前页面是否是主页
   useEffect(() => {
     setIsHomePage(router.pathname === "/");
-    
-  }, []);
+  }, [router.pathname]); //监听路由地址
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
@@ -43,7 +42,8 @@ function ArticlesList({ articles1, category }) {
 
   // Last current page articles' index number is:
   const lastIndex = currentItems.length - 1;
-console.log("isHomepage is:", isHomePage);
+  console.log("isHomepage is:", isHomePage);
+
   return (
     <div className="container-fluid p-0">
       <div className={styles.articlesList}>
